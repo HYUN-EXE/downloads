@@ -3,71 +3,99 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="유틸리티 프로그램 다운로드">
+  <meta name="description" content="GifMaker와 VideoCutter 유틸리티 다운로드">
+  <meta name="theme-color" content="#f5f1eb">
   <title>유틸리티 다운로드</title>
   <link rel="icon" href="assets/gifmaker-icon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="bg" aria-hidden="true"></div>
-  <div class="orb orb-1" aria-hidden="true"></div>
-  <div class="orb orb-2" aria-hidden="true"></div>
-  <div class="orb orb-3" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="유틸리티 홈">
+      <span class="brand-mark" aria-hidden="true">U</span>
+      <span>
+        <strong>UTILITIES</strong>
+        <small>Windows tools</small>
+      </span>
+    </a>
+    <span class="header-note"><i></i> 최신 설치 파일</span>
+  </header>
 
-  <div class="particles" aria-hidden="true">
-    <i></i><i></i><i></i><i></i><i></i><i></i>
-    <i></i><i></i><i></i><i></i><i></i><i></i>
-  </div>
-
-  <div class="shooting-stars" aria-hidden="true">
-    <i></i><i></i><i></i><i></i><i></i>
-  </div>
-
-  <main class="container">
-    <div class="logos" aria-hidden="true">
-      <div class="glow-ring"></div>
-      <div class="logo-item"><img src="assets/gifmaker-icon.png" alt=""></div>
-      <div class="logo-item"><img src="assets/videocutter-icon.png" alt=""></div>
-    </div>
-
-    <div class="title-wrapper">
-      <h1>유틸리티</h1>
-      <span class="sparkle sparkle-1">✦</span>
-      <span class="sparkle sparkle-2">✧</span>
-      <span class="sparkle sparkle-3">✦</span>
-      <span class="sparkle sparkle-4">✧</span>
-    </div>
-    <p class="tagline">Windows utilities</p>
-
-    <div class="divider" aria-hidden="true">
-      <span></span><b>downloads</b><span></span>
-    </div>
-
-    <section class="cards" aria-label="프로그램 다운로드">
-      <article class="card">
-        <div class="card-icon"><img src="assets/gifmaker-icon.png" alt="GifMaker 아이콘"></div>
-        <div class="card-body">
-          <h2>GifMaker</h2>
-          <p>간편한 GIF 제작 도구</p>
+  <main>
+    <section class="intro">
+      <div class="intro-copy">
+        <p class="eyebrow">SIMPLE · FAST · USEFUL</p>
+        <h1>필요한 도구를<br><em>바로 다운로드.</em></h1>
+        <p class="lead">복잡한 과정 없이 원하는 유틸리티를 선택하고 최신 Windows 설치 파일을 내려받으세요.</p>
+        <div class="feature-list" aria-label="배포 특징">
+          <span>Windows 10/11</span>
+          <span>직접 다운로드</span>
+          <span>SHA-256 제공</span>
         </div>
-        <a class="button" href="https://github.com/HYUN-EXE/downloads/releases/download/gifmaker-latest/GifMaker_Setup.zip" aria-label="GifMaker 다운로드">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download
-        </a>
-      </article>
+      </div>
 
-      <article class="card">
-        <div class="card-icon"><img src="assets/videocutter-icon.png" alt="VideoCutter 아이콘"></div>
-        <div class="card-body">
-          <h2>VideoCutter</h2>
-          <p>빠르고 간편한 동영상 구간 자르기</p>
+      <div class="visual" aria-hidden="true">
+        <span class="shape shape-one"></span>
+        <span class="shape shape-two"></span>
+        <span class="shape shape-three"></span>
+        <div class="visual-card card-back">
+          <img src="assets/videocutter-icon.png" alt="">
         </div>
-        <a class="button" href="https://github.com/HYUN-EXE/downloads/releases/download/videocutter-latest/VideoCutter_Setup.zip" aria-label="VideoCutter 다운로드">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download
-        </a>
-      </article>
+        <div class="visual-card card-front">
+          <img src="assets/gifmaker-icon.png" alt="">
+        </div>
+        <span class="visual-label">2 APPS</span>
+      </div>
+    </section>
+
+    <section class="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">DOWNLOADS</p>
+          <h2 id="catalog-title">유틸리티 선택</h2>
+        </div>
+        <p>사용할 프로그램을 선택하세요.</p>
+      </div>
+
+      <div class="app-grid">
+        <article class="app-card gif-card">
+          <div class="app-topline">
+            <span class="number">01</span>
+            <span class="platform">WINDOWS</span>
+          </div>
+          <div class="app-icon"><img src="assets/gifmaker-icon.png" alt="GifMaker 아이콘"></div>
+          <div class="app-copy">
+            <h3>GifMaker</h3>
+            <p>화면을 녹화하고 원하는 장면을 간편하게 GIF로 만들어 보세요.</p>
+          </div>
+          <a class="download-button" href="https://github.com/HYUN-EXE/downloads/releases/download/gifmaker-v1.0.0/GifMaker_Setup.zip">
+            <span>ZIP 다운로드</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </article>
+
+        <article class="app-card video-card">
+          <div class="app-topline">
+            <span class="number">02</span>
+            <span class="platform">WINDOWS</span>
+          </div>
+          <div class="app-icon"><img src="assets/videocutter-icon.png" alt="VideoCutter 아이콘"></div>
+          <div class="app-copy">
+            <h3>VideoCutter</h3>
+            <p>동영상에서 필요한 구간만 빠르고 정확하게 잘라내세요.</p>
+          </div>
+          <a class="download-button" href="https://github.com/HYUN-EXE/downloads/releases/download/v1.0.0/VideoCutter_Setup.zip">
+            <span>ZIP 다운로드</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </article>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <span>UTILITIES</span>
+    <p>가볍고 유용한 Windows 도구</p>
+  </footer>
 </body>
 </html>
