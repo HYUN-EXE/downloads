@@ -178,6 +178,8 @@ h1 em {
 .visual-card img { width: 105px; height: 105px; object-fit: contain; }
 .card-back { top: 28px; right: 22%; transform: rotate(8deg); animation: float-two 5s ease-in-out infinite; }
 .card-front { left: 17%; bottom: 24px; transform: rotate(-8deg); animation: float-one 4.5s ease-in-out infinite; }
+.card-middle { z-index: 2; top: 38%; left: 43%; width: 125px; height: 125px; transform: rotate(4deg); animation: float-two 5.5s .4s ease-in-out infinite; }
+.card-middle img { width: 82px; height: 82px; image-rendering: auto; }
 
 .visual-label {
   position: absolute;
@@ -214,7 +216,7 @@ h1 em {
 .section-heading h2 { font-size: clamp(1.8rem, 4vw, 2.65rem); letter-spacing: -.035em; }
 .section-heading p:last-child { color: rgba(255, 255, 255, .58); font-size: .85rem; }
 
-.app-grid { min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.app-grid { min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
 
 .app-card {
   position: relative;
@@ -244,6 +246,8 @@ h1 em {
 .gif-card::before { background: #d8b4fe; }
 .video-card { background: #ffe8ef; }
 .video-card::before { background: #fda4af; }
+.macro-card { background: #fff4d7; }
+.macro-card::before { background: #fde68a; }
 .app-card:hover { transform: translateY(-8px); box-shadow: 0 24px 55px rgba(0, 0, 0, .2); }
 
 .app-topline { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; }
@@ -307,6 +311,10 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
 @keyframes float-one { 0%, 100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-12px) rotate(-5deg); } }
 @keyframes float-two { 0%, 100% { transform: translateY(0) rotate(8deg); } 50% { transform: translateY(12px) rotate(5deg); } }
 
+@media (max-width: 1000px) {
+  .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
 @media (max-width: 860px) {
   .intro { grid-template-columns: 1fr; gap: 1rem; padding-top: 3.5rem; }
   .visual { width: min(100%, 500px); min-height: 330px; margin: 0 auto; }
@@ -325,6 +333,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .visual-card img { width: 82px; height: 82px; }
   .card-back { right: 10%; }
   .card-front { left: 12%; }
+  .card-middle { left: 43%; }
   .visual-label { right: 6%; }
   .catalog { padding: 1.4rem; border-radius: 25px; }
   .section-heading { display: block; }
