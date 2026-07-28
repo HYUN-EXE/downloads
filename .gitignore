@@ -1,0 +1,4 @@
+artifacts/
+.preview/
+*.zip
+*.sha256
