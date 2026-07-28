@@ -2,6 +2,8 @@
 
 - 홈페이지: <https://hyun-utilities.pages.dev/>
 - 공개 배포 저장소: <https://github.com/HYUN-EXE/downloads>
+- VideoCutter 배포: <https://github.com/HYUN-EXE/VideoCutter-Releases>
+- GifMaker 배포: <https://github.com/HYUN-EXE/GifMaker-Releases>
 - 비공개 애플리케이션 소스는 이 저장소에 포함하지 않습니다.
 
 GitHub의 `main` 브랜치가 Cloudflare Pages에 연결되어 있어 홈페이지 변경사항을 푸시하면 자동으로 배포됩니다.
