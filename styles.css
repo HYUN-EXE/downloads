@@ -203,7 +203,7 @@ h1 {
 }
 
 h1::before {
-  content: "Devez";
+  content: "유틸리티";
   position: absolute;
   inset: 0;
   z-index: -1;

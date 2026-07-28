@@ -1,4 +1,4 @@
-# Devez 다운로드 사이트
+# 유틸리티 다운로드 사이트
 
 GitHub Pages에는 이 폴더의 정적 홈페이지 파일만 배포하고, 프로그램 ZIP은 GitHub Releases에 업로드합니다.
 
