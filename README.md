@@ -23,8 +23,8 @@ GitHub의 `main` 브랜치가 Cloudflare Pages에 연결되어 있어 홈페이�
 ### GifMaker
 
 - Release 태그: `gifmaker-v1.0.0`과 같은 앱 이름 포함 형식
-- 사용자 다운로드 자산: `GifMaker_Setup.zip`, `GifMaker_Setup.zip.sha256`
-- 업데이트 메타데이터: `update.json`
+- 사용자 다운로드 자산: `GifMaker_Setup.exe`, `GifMaker_Setup.exe.sha256` (설치 프로그램)
+- 자동 업데이트 전송 자산: `GifMaker_Setup.zip`, `GifMaker_Setup.zip.sha256`, `update.json`
 - ZIP과 해시를 Release에 먼저 업로드한 다음 `update.json`을 마지막으로 커밋합니다.
 
 ## 인증
