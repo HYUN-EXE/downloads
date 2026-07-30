@@ -17,7 +17,8 @@ GitHub의 `main` 브랜치가 Cloudflare Pages에 연결되어 있어 홈페이�
 
 - Release 태그: `v1.0.0`, `v1.1.0`과 같은 버전 형식
 - 자동 업데이트 자산: `latest.yml`, `VideoCutter_Setup_버전.exe`, 대응 `.blockmap`
-- 사용자 다운로드 자산: `VideoCutter_Setup.zip`, `VideoCutter_Setup.zip.sha256`
+- 사용자 다운로드 자산: `VideoCutter_Setup.exe`, `VideoCutter_Setup.exe.sha256`
+- 이전 고정 링크 호환 자산: `VideoCutter_Setup.zip`, `VideoCutter_Setup.zip.sha256`
 - 생성된 electron-builder 자산은 이름이나 내용을 변경하지 않습니다.
 
 ### GifMaker
