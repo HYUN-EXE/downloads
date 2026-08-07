@@ -344,5 +344,8 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  html { scroll-behavior: auto; }
+  .intro-copy, .visual, .card-back, .card-front, .card-middle { animation: none; }
+  .app-card, .download-button { transition: background .01ms, box-shadow .01ms; }
+  .app-card:hover, .download-button:hover { transform: none; }
 }
