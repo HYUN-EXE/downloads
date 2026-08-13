@@ -23,7 +23,8 @@
   /* 카드 색: 5색이 자동 순환하므로 프로그램이 늘어도 손댈 필요 없음 */
   --card-ink: #281832;
   --icon-tile: rgba(255, 255, 255, .68);
-  --glow: rgba(255, 255, 255, .55);
+  --glow: rgba(255, 255, 255, .92);
+  --glow-halo: .5;
   --c1: #f7e8ff; --c1a: #d8b4fe;
   --c2: #ffe8ef; --c2a: #fda4af;
   --c3: #fff4d7; --c3a: #fde68a;
@@ -179,43 +180,56 @@ h1 em {
 .shape-two { width: 42%; height: 42%; top: -1%; right: -3%; border-radius: 50%; background: var(--yellow); mix-blend-mode: multiply; }
 .shape-three { width: 31%; height: 31%; bottom: -4%; left: -2%; border-radius: 18px; background: var(--coral); transform: rotate(18deg); mix-blend-mode: multiply; }
 
-/* 아이콘 타일은 개수와 무관하게 자동 배치된다 */
+/* 아이콘 타일 캐러셀: 3장이 반쯤 겹쳐 보이고, 가운데가 현재 순서다.
+   역할(left/center/right)은 스크립트가 data-role로 지정한다. */
 .visual-stack {
   position: relative;
   z-index: 2;
   height: 100%;
-  width: min(100%, 330px);
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 }
 
 .visual-card {
-  position: relative;
+  position: absolute;
   display: grid;
-  margin: -10px;
   place-items: center;
-  width: 116px;
-  height: 116px;
+  width: 124px;
+  height: 124px;
   border: 1px solid var(--surface-edge);
   border-radius: 28px;
   background: var(--surface-strong);
   box-shadow: 0 22px 50px rgba(56, 22, 72, .2);
   backdrop-filter: blur(12px);
+  transition: transform .6s cubic-bezier(.4, 0, .2, 1), opacity .6s ease;
 }
 
-.visual-card img { width: 78px; height: 78px; object-fit: contain; }
+.visual-card img { width: 84px; height: 84px; object-fit: contain; }
 
-.visual-card:nth-child(odd) { transform: rotate(-6deg); animation: float-one 4.6s ease-in-out infinite; }
-.visual-card:nth-child(even) { transform: rotate(6deg); animation: float-two 5.2s ease-in-out infinite; }
-.visual-card:nth-child(2) { z-index: 2; animation-delay: .3s; }
-.visual-card:nth-child(3) { z-index: 3; animation-delay: .6s; }
-.visual-card:nth-child(4) { z-index: 4; animation-delay: .9s; }
-.visual-card:nth-child(5) { z-index: 5; animation-delay: 1.2s; }
-.visual-card:nth-child(6) { z-index: 6; animation-delay: 1.5s; }
-.visual-card:nth-child(7) { z-index: 7; animation-delay: 1.8s; }
+/* 스크립트가 준비되기 전에는 겹쳐 둔 채 두고, 준비되면 역할별로 배치한다 */
+.visual-stack[data-ready] .visual-card {
+  z-index: 0;
+  opacity: 0;
+  transform: translateX(52%);
+}
+
+.visual-stack[data-ready] .visual-card[data-role="left"] {
+  z-index: 1;
+  opacity: .45;
+  transform: translateX(-52%);
+}
+
+.visual-stack[data-ready] .visual-card[data-role="center"] {
+  z-index: 3;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.visual-stack[data-ready] .visual-card[data-role="right"] {
+  z-index: 1;
+  opacity: .45;
+  transform: translateX(52%);
+}
 
 .visual-label {
   position: absolute;
@@ -309,16 +323,12 @@ h1 em {
 }
 
 /* 5색 자동 순환 — 프로그램이 6개, 7개로 늘어도 색 지정이 필요 없다 */
-.app-card:nth-child(5n + 1) { background: var(--c1); }
-.app-card:nth-child(5n + 1)::before { background: var(--c1a); }
-.app-card:nth-child(5n + 2) { background: var(--c2); }
-.app-card:nth-child(5n + 2)::before { background: var(--c2a); }
-.app-card:nth-child(5n + 3) { background: var(--c3); }
-.app-card:nth-child(5n + 3)::before { background: var(--c3a); }
-.app-card:nth-child(5n + 4) { background: var(--c4); }
-.app-card:nth-child(5n + 4)::before { background: var(--c4a); }
-.app-card:nth-child(5n)     { background: var(--c5); }
-.app-card:nth-child(5n)::before { background: var(--c5a); }
+.app-card:nth-child(5n + 1) { background: var(--c1); --accent: var(--c1a); }
+.app-card:nth-child(5n + 2) { background: var(--c2); --accent: var(--c2a); }
+.app-card:nth-child(5n + 3) { background: var(--c3); --accent: var(--c3a); }
+.app-card:nth-child(5n + 4) { background: var(--c4); --accent: var(--c4a); }
+.app-card:nth-child(5n)     { background: var(--c5); --accent: var(--c5a); }
+.app-card::before { background: var(--accent); }
 
 .app-card:hover { transform: translateY(-8px); box-shadow: 0 24px 55px rgba(0, 0, 0, .2); }
 
@@ -373,12 +383,14 @@ h1 em {
   z-index: 3;
   inset: 0;
   border-radius: 25px;
-  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 62%);
+  background:
+    radial-gradient(170px circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 62%),
+    radial-gradient(330px circle at var(--mx, 50%) var(--my, 50%), var(--accent), transparent 72%);
   opacity: 0;
   transition: opacity .35s ease;
 }
 
-.app-card:hover .card-link { opacity: 1; }
+.app-card:hover .card-link { opacity: var(--glow-halo); }
 
 .card-link:focus-visible { outline: 4px solid rgba(250, 204, 21, .8); outline-offset: -5px; }
 
@@ -424,9 +436,8 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .intro { min-height: auto; padding: 3rem 0 4rem; }
   h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); }
   .visual { min-height: 280px; }
-  .visual-stack { width: min(100%, 280px); }
-  .visual-card { width: 98px; height: 98px; border-radius: 24px; margin: -8px; }
-  .visual-card img { width: 64px; height: 64px; }
+  .visual-card { width: 102px; height: 102px; border-radius: 24px; }
+  .visual-card img { width: 68px; height: 68px; }
   .visual-label { right: 6%; }
   .catalog { padding: 1.4rem; border-radius: 25px; }
   .section-heading { display: block; }
@@ -452,7 +463,8 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
 
     --card-ink: #eceef2;
     --icon-tile: rgba(255, 255, 255, .07);
-    --glow: rgba(255, 255, 255, .12);
+    --glow: rgba(255, 255, 255, .14);
+    --glow-halo: .35;
     --c1: #221c2c; --c1a: #7e22ce;
     --c2: #2a1d23; --c2a: #db2777;
     --c3: #272117; --c3a: #d99b12;

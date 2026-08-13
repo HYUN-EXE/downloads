@@ -154,14 +154,44 @@
   </footer>
 
   <script>
+    const motionAllowed = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // 카드 위 커서 좌표를 CSS 변수로 넘겨 발광이 마우스를 따라오게 한다.
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (motionAllowed) {
       for (const card of document.querySelectorAll('.app-card')) {
         card.addEventListener('pointermove', event => {
           const box = card.getBoundingClientRect();
           card.style.setProperty('--mx', (event.clientX - box.left) + 'px');
           card.style.setProperty('--my', (event.clientY - box.top) + 'px');
         });
+      }
+    }
+
+    // 히어로 아이콘 캐러셀: 이전 / 현재 / 다음 세 장만 두고 한 칸씩 넘긴다.
+    const stack = document.querySelector('.visual-stack');
+    if (stack) {
+      const tiles = Array.from(stack.children);
+      const total = tiles.length;
+      let center = total > 1 ? 1 : 0;
+
+      const place = () => {
+        tiles.forEach((tile, index) => {
+          const offset = (index - center + total) % total;
+          tile.dataset.role =
+            offset === 0 ? 'center' :
+            offset === 1 ? 'right' :
+            offset === total - 1 ? 'left' : '';
+        });
+      };
+
+      stack.dataset.ready = '';
+      place();
+
+      if (motionAllowed && total > 1) {
+        setInterval(() => {
+          center = (center + 1) % total;
+          place();
+        }, 2600);
       }
     }
   </script>
