@@ -182,28 +182,28 @@ h1 em {
 .shape-one {
   top: 50%;
   left: 50%;
-  width: 86%;
-  height: 216px;
+  width: 76%;
+  height: 196px;
   border-radius: 46% 54% 52% 48% / 58% 44% 56% 42%;
   background: var(--purple);
   transform: translate(-50%, -50%) rotate(-4deg);
 }
 
 .shape-two {
-  width: 30%;
-  padding-top: 30%;
-  top: 8%;
-  right: 4%;
+  width: 26%;
+  padding-top: 26%;
+  top: 4%;
+  right: 1%;
   border-radius: 50%;
   background: var(--yellow);
   mix-blend-mode: var(--shape-blend);
 }
 
 .shape-three {
-  width: 23%;
-  padding-top: 23%;
-  bottom: 6%;
-  left: 3%;
+  width: 20%;
+  padding-top: 20%;
+  bottom: 5%;
+  left: 1%;
   border-radius: 22px;
   background: var(--coral);
   transform: rotate(16deg);
@@ -213,9 +213,9 @@ h1 em {
 /* 아이콘 타일 캐러셀: 3장이 반쯤 겹쳐 보이고, 가운데가 현재 순서다.
    역할(left/center/right)은 스크립트가 data-role로 지정한다. */
 .visual-stack {
-  position: relative;
+  position: absolute;
   z-index: 2;
-  height: 100%;
+  inset: 0;
   display: grid;
   place-items: center;
 }
@@ -466,7 +466,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .intro { min-height: auto; padding: 3rem 0 4rem; }
   h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); }
   .visual { min-height: 280px; }
-  .shape-one { height: 170px; width: 94%; }
+  .shape-one { height: 160px; width: 88%; }
   .visual-card { width: 102px; height: 102px; border-radius: 24px; }
   .visual-card img { width: 68px; height: 68px; }
   .visual-label { right: 6%; }
@@ -505,6 +505,8 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   }
 
   .catalog { box-shadow: 0 32px 80px rgba(0, 0, 0, .45); }
+  .shape-one { opacity: .72; }
+  .shape-two, .shape-three { opacity: .8; }
   .app-card::after { background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .1), transparent); }
 }
 
