@@ -3,27 +3,9 @@ artifacts/
 *.zip
 *.sha256
 
-# Claude Code의 컴퓨터별 로컬 훅 설정
-.claude/settings.local.json
-.codex/hooks.json
-
-# 공급자별로 자동 설치되는 Impeccable 본체
-.agents/skills/impeccable/
-.claude/skills/impeccable/
-
-# Impeccable의 로컬 실행 상태와 임시 산출물
-.impeccable/config.local.json
-.impeccable/hook.cache.json
-.impeccable/hook.pending.json
-.impeccable/*.png
-.impeccable/live/server.json
-.impeccable/live/sessions/
-.impeccable/live/previews/
-.impeccable/live/annotations/
-.impeccable/live/cache/
-.impeccable/live/manual-edit-apply-transaction.json
-.impeccable/live/manual-edit-events.jsonl
-.impeccable/live/manual-edit-evidence/
-.impeccable/live/pending-manual-edits.json
-.impeccable/live/deferred-svelte-component-accepts.json
-.impeccable/live/*.png
+# 에이전트 스킬과 도구별 로컬 설정은 저장소에 포함하지 않는다
+.agents/
+.claude/
+.codex/
+.impeccable/
+skills-lock.json
