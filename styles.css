@@ -23,9 +23,9 @@
   /* 카드 색: 5색이 자동 순환하므로 프로그램이 늘어도 손댈 필요 없음 */
   --card-ink: #281832;
   --icon-tile: rgba(255, 255, 255, .68);
-  --glow: rgba(255, 255, 255, .92);
+  --glow: rgba(255, 255, 255, .75);
   --shape-blend: multiply;
-  --glow-halo: .5;
+  --glow-halo: .45;
   --c1: #f7e8ff; --c1a: #d8b4fe;
   --c2: #ffe8ef; --c2a: #fda4af;
   --c3: #fff4d7; --c3a: #fde68a;
@@ -413,14 +413,22 @@ h1 em {
   z-index: 3;
   inset: 0;
   border-radius: 25px;
-  background:
-    radial-gradient(170px circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 62%),
-    radial-gradient(330px circle at var(--mx, 50%) var(--my, 50%), var(--accent), transparent 72%);
+  background: radial-gradient(circle 170px at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 65%);
   opacity: 0;
-  transition: opacity .35s ease;
+  transition: opacity .3s ease;
 }
 
-.app-card:hover .card-link { opacity: var(--glow-halo); }
+/* 카드 고유색 헤일로. 흰 코어보다 넓게 퍼지며 강도는 따로 잡는다 */
+.card-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: var(--glow-halo);
+  background: radial-gradient(circle 320px at var(--mx, 50%) var(--my, 50%), var(--accent), transparent 70%);
+}
+
+.app-card:hover .card-link { opacity: 1; }
 
 .card-link:focus-visible { outline: 4px solid rgba(250, 204, 21, .8); outline-offset: -5px; }
 
@@ -494,9 +502,9 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
 
     --card-ink: #eceef2;
     --icon-tile: rgba(255, 255, 255, .07);
-    --glow: rgba(255, 255, 255, .14);
+    --glow: rgba(255, 255, 255, .16);
     --shape-blend: screen;
-    --glow-halo: .35;
+    --glow-halo: .3;
     --c1: #221c2c; --c1a: #7e22ce;
     --c2: #2a1d23; --c2a: #db2777;
     --c3: #272117; --c3a: #d99b12;
