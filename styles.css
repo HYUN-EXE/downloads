@@ -27,6 +27,7 @@
   /* 카드 색: 5색이 자동 순환하므로 프로그램이 늘어도 손댈 필요 없음 */
   --card-ink: #281832;
   --icon-tile: rgba(255, 255, 255, .68);
+  --glow: rgba(255, 255, 255, .55);
   --c1: #f7e8ff; --c1a: #d8b4fe;
   --c2: #ffe8ef; --c2a: #fda4af;
   --c3: #fff4d7; --c3a: #fde68a;
@@ -187,16 +188,18 @@ h1 em {
   position: relative;
   z-index: 2;
   height: 100%;
+  width: min(100%, 330px);
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  gap: 1rem;
-  padding: 1rem 2.5rem;
 }
 
 .visual-card {
+  position: relative;
   display: grid;
+  margin: -10px;
   place-items: center;
   width: 116px;
   height: 116px;
@@ -211,12 +214,12 @@ h1 em {
 
 .visual-card:nth-child(odd) { transform: rotate(-6deg); animation: float-one 4.6s ease-in-out infinite; }
 .visual-card:nth-child(even) { transform: rotate(6deg); animation: float-two 5.2s ease-in-out infinite; }
-.visual-card:nth-child(2) { animation-delay: .3s; }
-.visual-card:nth-child(3) { animation-delay: .6s; }
-.visual-card:nth-child(4) { animation-delay: .9s; }
-.visual-card:nth-child(5) { animation-delay: 1.2s; }
-.visual-card:nth-child(6) { animation-delay: 1.5s; }
-.visual-card:nth-child(7) { animation-delay: 1.8s; }
+.visual-card:nth-child(2) { z-index: 2; animation-delay: .3s; }
+.visual-card:nth-child(3) { z-index: 3; animation-delay: .6s; }
+.visual-card:nth-child(4) { z-index: 4; animation-delay: .9s; }
+.visual-card:nth-child(5) { z-index: 5; animation-delay: 1.2s; }
+.visual-card:nth-child(6) { z-index: 6; animation-delay: 1.5s; }
+.visual-card:nth-child(7) { z-index: 7; animation-delay: 1.8s; }
 
 .visual-label {
   position: absolute;
@@ -369,13 +372,19 @@ h1 em {
   transition: background .25s ease, border-color .25s ease;
 }
 
-/* 카드 전체가 클릭 영역이다. 보이는 버튼은 표시용이고 실제 링크는 이 레이어다 */
+/* 카드 전체가 클릭 영역이다. 보이는 버튼은 표시용이고 실제 링크는 이 레이어다.
+   같은 레이어가 커서를 따라다니는 은은한 발광도 맡는다 (좌표는 스크립트가 넣어준다) */
 .card-link {
   position: absolute;
   z-index: 3;
   inset: 0;
   border-radius: 25px;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 62%);
+  opacity: 0;
+  transition: opacity .35s ease;
 }
+
+.app-card:hover .card-link { opacity: 1; }
 
 .card-link:focus-visible { outline: 4px solid rgba(250, 204, 21, .8); outline-offset: -5px; }
 
@@ -427,8 +436,8 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .intro { min-height: auto; padding: 3rem 0 4rem; }
   h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); }
   .visual { min-height: 280px; }
-  .visual-stack { gap: .8rem; padding: 1rem 0; }
-  .visual-card { width: 96px; height: 96px; border-radius: 24px; }
+  .visual-stack { width: min(100%, 280px); }
+  .visual-card { width: 98px; height: 98px; border-radius: 24px; margin: -8px; }
   .visual-card img { width: 64px; height: 64px; }
   .visual-label { right: 6%; }
   .catalog { padding: 1.4rem; border-radius: 25px; }
@@ -459,6 +468,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
 
     --card-ink: #eceef2;
     --icon-tile: rgba(255, 255, 255, .07);
+    --glow: rgba(255, 255, 255, .12);
     --c1: #221c2c; --c1a: #7e22ce;
     --c2: #2a1d23; --c2a: #db2777;
     --c3: #272117; --c3a: #d99b12;
@@ -476,6 +486,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .intro-copy, .visual, .visual-card,
   .feature-list span, h1 em, .app-card { animation: none; }
   .app-card:hover::after { animation: none; }
+  .card-link { display: none; }
   .app-card, .download-button, .app-icon { transition: background .01ms, box-shadow .01ms; }
   .app-card:hover, .app-card:hover .download-button svg,
   .app-card:hover .app-icon { transform: none; }

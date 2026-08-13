@@ -152,5 +152,18 @@
     <span>UTILITIES</span>
     <p>가볍고 유용한 Windows 도구</p>
   </footer>
+
+  <script>
+    // 카드 위 커서 좌표를 CSS 변수로 넘겨 발광이 마우스를 따라오게 한다.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      for (const card of document.querySelectorAll('.app-card')) {
+        card.addEventListener('pointermove', event => {
+          const box = card.getBoundingClientRect();
+          card.style.setProperty('--mx', (event.clientX - box.left) + 'px');
+          card.style.setProperty('--my', (event.clientY - box.top) + 'px');
+        });
+      }
+    }
+  </script>
 </body>
 </html>
