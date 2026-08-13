@@ -1,4 +1,0 @@
-interface:
-  display_name: "Skill Supply Chain"
-  short_description: "Review and pin external skills before repository use"
-  default_prompt: "Use $skill-supply-chain to review and pin a task-specific skill before installing it."
