@@ -38,14 +38,13 @@
         <span class="shape shape-one"></span>
         <span class="shape shape-two"></span>
         <span class="shape shape-three"></span>
-        <div class="visual-card card-back">
-          <img src="assets/tetherbrowser-icon.png" alt="">
-        </div>
-        <div class="visual-card card-front">
-          <img src="assets/gifmaker-icon.png" alt="">
-        </div>
-        <div class="visual-card card-middle">
-          <img src="assets/smcr-icon.png?v=1.4.1" alt="">
+        <!-- 프로그램을 추가하면 여기에 타일을 하나 더 넣으면 된다. 배치는 자동으로 맞춰진다. -->
+        <div class="visual-stack">
+          <span class="visual-card"><img src="assets/gifmaker-icon.png" alt=""></span>
+          <span class="visual-card"><img src="assets/videocutter-icon.png" alt=""></span>
+          <span class="visual-card"><img src="assets/smcr-icon.png?v=1.5.1" alt=""></span>
+          <span class="visual-card"><img src="assets/formatrestore-icon.png" alt=""></span>
+          <span class="visual-card"><img src="assets/tetherbrowser-icon.png" alt=""></span>
         </div>
         <span class="visual-label">5 APPS</span>
       </div>
@@ -71,10 +70,11 @@
             <h3>GifMaker</h3>
             <p>화면을 녹화하고 원하는 장면을 간편하게 GIF로 만들어 보세요.</p>
           </div>
-          <a class="download-button" href="https://github.com/HYUN-EXE/GifMaker-Releases/releases/latest/download/GifMaker_Setup.exe">
+          <a class="card-link" href="https://github.com/HYUN-EXE/GifMaker-Releases/releases/latest/download/GifMaker_Setup.exe" aria-label="GifMaker EXE 다운로드"></a>
+          <span class="download-button">
             <span>EXE 다운로드</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </a>
+          </span>
         </article>
 
         <article class="app-card">
@@ -87,10 +87,11 @@
             <h3>VideoCutter</h3>
             <p>동영상에서 필요한 구간만 빠르고 정확하게 잘라내세요.</p>
           </div>
-          <a class="download-button" href="https://github.com/HYUN-EXE/VideoCutter-Releases/releases/latest/download/VideoCutter_Setup.exe">
+          <a class="card-link" href="https://github.com/HYUN-EXE/VideoCutter-Releases/releases/latest/download/VideoCutter_Setup.exe" aria-label="VideoCutter EXE 다운로드"></a>
+          <span class="download-button">
             <span>EXE 다운로드</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </a>
+          </span>
         </article>
 
         <article class="app-card">
@@ -103,10 +104,11 @@
             <h3>SmcR</h3>
             <p>키보드와 마우스 동작을 안전하게 기록하고 반복 실행하세요.</p>
           </div>
-          <a class="download-button" href="https://github.com/HYUN-EXE/SimpleMacro-Releases/releases/latest/download/SmcR_Setup.exe">
+          <a class="card-link" href="https://github.com/HYUN-EXE/SimpleMacro-Releases/releases/latest/download/SmcR_Setup.exe" aria-label="SmcR EXE 다운로드"></a>
+          <span class="download-button">
             <span>EXE 다운로드</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </a>
+          </span>
         </article>
 
         <article class="app-card">
@@ -119,10 +121,11 @@
             <h3>포맷 복원 도우미</h3>
             <p>포맷 전 파일과 설치 앱 목록을 USB에 백업하고 포맷 후 그대로 복원하세요.</p>
           </div>
-          <a class="download-button" href="https://github.com/HYUN-EXE/FormatRestoreHelper-Releases/releases/latest/download/FormatRestoreHelper_Setup.exe">
+          <a class="card-link" href="https://github.com/HYUN-EXE/FormatRestoreHelper-Releases/releases/latest/download/FormatRestoreHelper_Setup.exe" aria-label="포맷 복원 도우미 EXE 다운로드"></a>
+          <span class="download-button">
             <span>EXE 다운로드</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </a>
+          </span>
         </article>
 
         <article class="app-card">
@@ -135,10 +138,11 @@
             <h3>TetherBrowser</h3>
             <p>휴대폰 테더링 회선만 사용하도록 격리된 전용 브라우저입니다.</p>
           </div>
-          <a class="download-button" href="https://github.com/HYUN-EXE/TetherBrowser-Releases/releases/latest/download/TetherBrowser_Setup.exe">
+          <a class="card-link" href="https://github.com/HYUN-EXE/TetherBrowser-Releases/releases/latest/download/TetherBrowser_Setup.exe" aria-label="TetherBrowser EXE 다운로드"></a>
+          <span class="download-button">
             <span>EXE 다운로드</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </a>
+          </span>
         </article>
       </div>
     </section>

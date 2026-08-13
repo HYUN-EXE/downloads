@@ -18,8 +18,11 @@
   --surface-edge: rgba(255, 255, 255, .75);
   --panel: var(--ink);
   --panel-ink: #fff;
-  --btn-bg: var(--ink);
-  --btn-fg: #fff;
+  --btn-bg: rgba(255, 255, 255, .58);
+  --btn-bg-hover: rgba(255, 255, 255, .92);
+  --btn-edge: rgba(255, 255, 255, .8);
+  --btn-edge-hover: #fff;
+  --btn-fg: var(--card-ink);
 
   /* 카드 색: 5색이 자동 순환하므로 프로그램이 늘어도 손댈 필요 없음 */
   --card-ink: #281832;
@@ -179,24 +182,41 @@ h1 em {
 .shape-two { width: 42%; height: 42%; top: -1%; right: -3%; border-radius: 50%; background: var(--yellow); mix-blend-mode: multiply; }
 .shape-three { width: 31%; height: 31%; bottom: -4%; left: -2%; border-radius: 18px; background: var(--coral); transform: rotate(18deg); mix-blend-mode: multiply; }
 
+/* 아이콘 타일은 개수와 무관하게 자동 배치된다 */
+.visual-stack {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2.5rem;
+}
+
 .visual-card {
-  position: absolute;
   display: grid;
   place-items: center;
-  width: 154px;
-  height: 154px;
+  width: 116px;
+  height: 116px;
   border: 1px solid var(--surface-edge);
-  border-radius: 32px;
+  border-radius: 28px;
   background: var(--surface-strong);
-  box-shadow: 0 30px 70px rgba(56, 22, 72, .2);
+  box-shadow: 0 22px 50px rgba(56, 22, 72, .2);
   backdrop-filter: blur(12px);
 }
 
-.visual-card img { width: 105px; height: 105px; object-fit: contain; }
-.card-back { top: 28px; right: 22%; transform: rotate(8deg); animation: float-two 5s ease-in-out infinite; }
-.card-front { left: 17%; bottom: 24px; transform: rotate(-8deg); animation: float-one 4.5s ease-in-out infinite; }
-.card-middle { z-index: 2; top: 38%; left: 43%; width: 125px; height: 125px; transform: rotate(4deg); animation: float-two 5.5s .4s ease-in-out infinite; }
-.card-middle img { width: 82px; height: 82px; image-rendering: auto; }
+.visual-card img { width: 78px; height: 78px; object-fit: contain; }
+
+.visual-card:nth-child(odd) { transform: rotate(-6deg); animation: float-one 4.6s ease-in-out infinite; }
+.visual-card:nth-child(even) { transform: rotate(6deg); animation: float-two 5.2s ease-in-out infinite; }
+.visual-card:nth-child(2) { animation-delay: .3s; }
+.visual-card:nth-child(3) { animation-delay: .6s; }
+.visual-card:nth-child(4) { animation-delay: .9s; }
+.visual-card:nth-child(5) { animation-delay: 1.2s; }
+.visual-card:nth-child(6) { animation-delay: 1.5s; }
+.visual-card:nth-child(7) { animation-delay: 1.8s; }
 
 .visual-label {
   position: absolute;
@@ -233,12 +253,15 @@ h1 em {
 .section-heading h2 { font-size: clamp(1.8rem, 4vw, 2.65rem); letter-spacing: -.035em; }
 .section-heading p:last-child { color: rgba(255, 255, 255, .58); font-size: .85rem; }
 
-.app-grid { min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+/* flex + 가운데 정렬: 마지막 줄이 덜 차도 카드 크기는 그대로 두고 가운데로 모은다 */
+.app-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.25rem; }
 
 .app-card {
   position: relative;
   min-width: 0;
+  flex: 0 0 calc((100% - 2.5rem) / 3);
   min-height: 410px;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -257,10 +280,6 @@ h1 em {
 .app-card:nth-child(6) { animation-delay: .35s; }
 .app-card:nth-child(7) { animation-delay: .42s; }
 .app-card:nth-child(8) { animation-delay: .49s; }
-
-/* 마지막 줄이 비지 않도록 남는 칸만큼 늘림 (3열 기준) */
-.app-card:last-child:nth-child(3n + 1) { grid-column: span 3; }
-.app-card:last-child:nth-child(3n + 2) { grid-column: span 2; }
 
 /* hover 시 카드 위를 훑고 지나가는 광택 */
 .app-card::after {
@@ -340,20 +359,35 @@ h1 em {
   justify-content: space-between;
   margin-top: auto;
   padding: 1rem 1.15rem;
+  border: 1px solid var(--btn-edge);
   border-radius: 14px;
   color: var(--btn-fg);
   background: var(--btn-bg);
   font-size: .86rem;
   font-weight: 700;
   text-decoration: none;
-  transition: background .25s ease, transform .25s ease, box-shadow .25s ease;
+  transition: background .25s ease, border-color .25s ease;
 }
 
+/* 카드 전체가 클릭 영역이다. 보이는 버튼은 표시용이고 실제 링크는 이 레이어다 */
+.card-link {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  border-radius: 25px;
+}
+
+.card-link:focus-visible { outline: 4px solid rgba(250, 204, 21, .8); outline-offset: -5px; }
+
 .download-button svg { transition: transform .25s ease; }
-.download-button:hover { background: var(--purple); transform: translateY(-2px); box-shadow: 0 12px 24px rgba(126, 34, 206, .3); }
-.download-button:hover svg { transform: translateY(3px); }
-.download-button:active { transform: translateY(0); }
-.download-button:focus-visible { outline: 4px solid rgba(250, 204, 21, .6); outline-offset: 3px; }
+
+.app-card:hover .download-button {
+  background: var(--btn-bg-hover);
+  border-color: var(--btn-edge-hover);
+}
+
+.app-card:hover .download-button svg { transform: translateY(3px); }
+
 
 footer {
   width: min(1180px, calc(100% - 48px));
@@ -377,10 +411,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
 @keyframes sheen { from { left: -60%; opacity: 1; } to { left: 130%; opacity: 0; } }
 
 @media (max-width: 1000px) {
-  .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .app-card:last-child:nth-child(3n + 1),
-  .app-card:last-child:nth-child(3n + 2) { grid-column: auto; }
-  .app-card:last-child:nth-child(odd) { grid-column: span 2; }
+  .app-card { flex-basis: calc((100% - 1.25rem) / 2); }
 }
 
 @media (max-width: 860px) {
@@ -396,18 +427,14 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .intro { min-height: auto; padding: 3rem 0 4rem; }
   h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); }
   .visual { min-height: 280px; }
-  .visual-card { width: 120px; height: 120px; border-radius: 25px; }
-  .visual-card img { width: 82px; height: 82px; }
-  .card-back { right: 10%; }
-  .card-front { left: 12%; }
-  .card-middle { left: 43%; }
+  .visual-stack { gap: .8rem; padding: 1rem 0; }
+  .visual-card { width: 96px; height: 96px; border-radius: 24px; }
+  .visual-card img { width: 64px; height: 64px; }
   .visual-label { right: 6%; }
   .catalog { padding: 1.4rem; border-radius: 25px; }
   .section-heading { display: block; }
   .section-heading p:last-child { margin-top: .6rem; }
-  .app-grid { grid-template-columns: 1fr; }
-  .app-card:last-child:nth-child(odd) { grid-column: auto; }
-  .app-card { min-height: 380px; padding: 1.45rem; }
+  .app-card { flex-basis: 100%; min-height: 380px; padding: 1.45rem; }
   footer { min-height: 84px; }
 }
 
@@ -424,8 +451,11 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
     --surface-edge: rgba(255, 255, 255, .1);
     --panel: #15171c;
     --panel-ink: #f2f4f7;
-    --btn-bg: #f2f4f7;
-    --btn-fg: #15171c;
+    --btn-bg: rgba(255, 255, 255, .07);
+    --btn-bg-hover: rgba(255, 255, 255, .16);
+    --btn-edge: rgba(255, 255, 255, .14);
+    --btn-edge-hover: rgba(255, 255, 255, .3);
+    --btn-fg: var(--card-ink);
 
     --card-ink: #eceef2;
     --icon-tile: rgba(255, 255, 255, .07);
@@ -438,15 +468,15 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
 
   .catalog { box-shadow: 0 32px 80px rgba(0, 0, 0, .45); }
   .app-card::after { background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .1), transparent); }
-  .download-button:hover { color: #fff; }
+  .app-card:hover .download-button { color: #fff; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .intro-copy, .visual, .card-back, .card-front, .card-middle,
+  .intro-copy, .visual, .visual-card,
   .feature-list span, h1 em, .app-card { animation: none; }
   .app-card:hover::after { animation: none; }
   .app-card, .download-button, .app-icon { transition: background .01ms, box-shadow .01ms; }
-  .app-card:hover, .download-button:hover, .download-button:hover svg,
+  .app-card:hover, .app-card:hover .download-button svg,
   .app-card:hover .app-icon { transform: none; }
 }
