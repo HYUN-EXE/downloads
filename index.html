@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="brand" href="./" aria-label="유틸리티 홈">
       <span class="brand-mark" aria-hidden="true">U</span>
@@ -155,6 +157,35 @@
 
   <script>
     const motionAllowed = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 페이지 전체를 따라다니는 커서 빛. 살짝 늦게 따라와야 부드럽게 보인다.
+    const cursorGlow = document.querySelector('.cursor-glow');
+    if (cursorGlow && motionAllowed && matchMedia('(pointer: fine)').matches) {
+      let pointerX = innerWidth / 2, pointerY = innerHeight / 2;
+      let glowX = pointerX, glowY = pointerY, following = false;
+
+      const follow = () => {
+        glowX += (pointerX - glowX) * .12;
+        glowY += (pointerY - glowY) * .12;
+        cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
+        requestAnimationFrame(follow);
+      };
+
+      addEventListener('pointermove', event => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        if (!following) {
+          following = true;
+          glowX = pointerX;
+          glowY = pointerY;
+          document.body.dataset.cursor = '';
+          follow();
+        }
+      }, { passive: true });
+
+      addEventListener('pointerleave', () => delete document.body.dataset.cursor);
+      addEventListener('pointerenter', () => { if (following) document.body.dataset.cursor = ''; });
+    }
 
     // 카드 위 커서 좌표를 CSS 변수로 넘겨 발광이 마우스를 따라오게 한다.
     if (motionAllowed) {

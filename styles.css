@@ -24,6 +24,7 @@
   --card-ink: #281832;
   --icon-tile: rgba(255, 255, 255, .68);
   --glow: rgba(255, 255, 255, .75);
+  --cursor-light: radial-gradient(circle, rgba(126, 34, 206, .26), rgba(219, 39, 119, .15) 42%, transparent 68%);
   --shape-blend: multiply;
   --glow-halo: .45;
   --c1: #f7e8ff; --c1a: #d8b4fe;
@@ -61,6 +62,25 @@ body::before {
   background: radial-gradient(circle, rgba(244, 114, 182, .2), rgba(192, 132, 252, .08) 48%, transparent 70%);
   pointer-events: none;
 }
+
+/* 페이지 전체에서 커서를 따라다니는 은은한 빛. 좌표는 스크립트가 넣는다 */
+.cursor-glow {
+  position: fixed;
+  z-index: 60;
+  top: 0;
+  left: 0;
+  width: 460px;
+  height: 460px;
+  margin: -230px 0 0 -230px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--cursor-light);
+  transition: opacity .5s ease;
+  will-change: transform;
+}
+
+body[data-cursor] .cursor-glow { opacity: 1; }
 
 .site-header {
   width: min(1180px, calc(100% - 48px));
@@ -179,31 +199,33 @@ h1 em {
 /* 배경 도형은 가로로 도는 캐러셀을 받쳐 주도록 가운데 띠 + 양끝 악센트로 배치한다 */
 .shape { position: absolute; display: block; }
 
+/* 현재 순서를 가리키는 원형 스포트라이트. 가운데 타일 뒤에만 깔린다 */
 .shape-one {
   top: 50%;
   left: 50%;
-  width: 76%;
-  height: 196px;
-  border-radius: 46% 54% 52% 48% / 58% 44% 56% 42%;
-  background: var(--purple);
-  transform: translate(-50%, -50%) rotate(-4deg);
+  width: 264px;
+  height: 264px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--purple), transparent 66%);
+  opacity: .55;
+  transform: translate(-50%, -50%);
 }
 
 .shape-two {
-  width: 26%;
-  padding-top: 26%;
-  top: 4%;
-  right: 1%;
+  width: 22%;
+  padding-top: 22%;
+  top: 3%;
+  left: 12%;
   border-radius: 50%;
   background: var(--yellow);
   mix-blend-mode: var(--shape-blend);
 }
 
 .shape-three {
-  width: 20%;
-  padding-top: 20%;
-  bottom: 5%;
-  left: 1%;
+  width: 17%;
+  padding-top: 17%;
+  bottom: 9%;
+  right: 27%;
   border-radius: 22px;
   background: var(--coral);
   transform: rotate(16deg);
@@ -245,7 +267,7 @@ h1 em {
 
 .visual-stack[data-ready] .visual-card[data-role="left"] {
   z-index: 1;
-  opacity: .45;
+  opacity: .7;
   transform: translateX(-52%);
 }
 
@@ -257,7 +279,7 @@ h1 em {
 
 .visual-stack[data-ready] .visual-card[data-role="right"] {
   z-index: 1;
-  opacity: .45;
+  opacity: .7;
   transform: translateX(52%);
 }
 
@@ -474,7 +496,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .intro { min-height: auto; padding: 3rem 0 4rem; }
   h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); }
   .visual { min-height: 280px; }
-  .shape-one { height: 160px; width: 88%; }
+  .shape-one { width: 212px; height: 212px; }
   .visual-card { width: 102px; height: 102px; border-radius: 24px; }
   .visual-card img { width: 68px; height: 68px; }
   .visual-label { right: 6%; }
@@ -503,6 +525,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
     --card-ink: #eceef2;
     --icon-tile: rgba(255, 255, 255, .07);
     --glow: rgba(255, 255, 255, .16);
+    --cursor-light: radial-gradient(circle, rgba(168, 130, 255, .3), rgba(244, 114, 182, .16) 42%, transparent 68%);
     --shape-blend: screen;
     --glow-halo: .3;
     --c1: #221c2c; --c1a: #7e22ce;
@@ -513,7 +536,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   }
 
   .catalog { box-shadow: 0 32px 80px rgba(0, 0, 0, .45); }
-  .shape-one { opacity: .72; }
+  .shape-one { opacity: .5; }
   .shape-two, .shape-three { opacity: .8; }
   .app-card::after { background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .1), transparent); }
 }
@@ -523,7 +546,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .intro-copy, .visual, .visual-card,
   .feature-list span, h1 em, .app-card { animation: none; }
   .app-card:hover::after { animation: none; }
-  .card-link { display: none; }
+  .card-link, .cursor-glow { display: none; }
   .app-card, .download-button, .app-icon { transition: background .01ms, box-shadow .01ms; }
   .app-card:hover, .app-card:hover .app-icon { transform: none; }
 }
