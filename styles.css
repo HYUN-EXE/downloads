@@ -18,10 +18,6 @@
   --surface-edge: rgba(255, 255, 255, .75);
   --panel: var(--ink);
   --panel-ink: #fff;
-  --btn-bg: rgba(255, 255, 255, .58);
-  --btn-bg-hover: rgba(255, 255, 255, .92);
-  --btn-edge: rgba(255, 255, 255, .8);
-  --btn-edge-hover: #fff;
   --btn-fg: var(--card-ink);
 
   /* 카드 색: 5색이 자동 순환하므로 프로그램이 늘어도 손댈 필요 없음 */
@@ -361,15 +357,13 @@ h1 em {
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
-  padding: 1rem 1.15rem;
-  border: 1px solid var(--btn-edge);
-  border-radius: 14px;
+  padding: 1rem 0 0;
   color: var(--btn-fg);
-  background: var(--btn-bg);
+  background: none;
   font-size: .86rem;
   font-weight: 700;
   text-decoration: none;
-  transition: background .25s ease, border-color .25s ease;
+  transition: opacity .25s ease;
 }
 
 /* 카드 전체가 클릭 영역이다. 보이는 버튼은 표시용이고 실제 링크는 이 레이어다.
@@ -388,14 +382,8 @@ h1 em {
 
 .card-link:focus-visible { outline: 4px solid rgba(250, 204, 21, .8); outline-offset: -5px; }
 
-.download-button svg { transition: transform .25s ease; }
-
-.app-card:hover .download-button {
-  background: var(--btn-bg-hover);
-  border-color: var(--btn-edge-hover);
-}
-
-.app-card:hover .download-button svg { transform: translateY(3px); }
+.download-button svg { display: block; flex: none; }
+.app-card:hover .download-button { opacity: .78; }
 
 
 footer {
@@ -460,10 +448,6 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
     --surface-edge: rgba(255, 255, 255, .1);
     --panel: #15171c;
     --panel-ink: #f2f4f7;
-    --btn-bg: rgba(255, 255, 255, .07);
-    --btn-bg-hover: rgba(255, 255, 255, .16);
-    --btn-edge: rgba(255, 255, 255, .14);
-    --btn-edge-hover: rgba(255, 255, 255, .3);
     --btn-fg: var(--card-ink);
 
     --card-ink: #eceef2;
@@ -478,7 +462,6 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
 
   .catalog { box-shadow: 0 32px 80px rgba(0, 0, 0, .45); }
   .app-card::after { background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .1), transparent); }
-  .app-card:hover .download-button { color: #fff; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -488,6 +471,5 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .app-card:hover::after { animation: none; }
   .card-link { display: none; }
   .app-card, .download-button, .app-icon { transition: background .01ms, box-shadow .01ms; }
-  .app-card:hover, .app-card:hover .download-button svg,
-  .app-card:hover .app-icon { transform: none; }
+  .app-card:hover, .app-card:hover .app-icon { transform: none; }
 }
