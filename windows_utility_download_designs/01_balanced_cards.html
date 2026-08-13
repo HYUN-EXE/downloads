@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>유틸리티 다운로드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-soft: #f0f2f5;
+  --text: #171a21;
+  --muted: #667085;
+  --line: #e3e7ed;
+  --accent: #1769e0;
+  --accent-hover: #0f58c4;
+  --accent-soft: #eaf2ff;
+  --shadow: 0 14px 40px rgba(16, 24, 40, .07);
+  --radius-xl: 26px;
+  --radius-lg: 18px;
+  --content: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+.site-shell { width: min(calc(100% - 40px), var(--content)); margin: 0 auto; }
+.topbar {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--text);
+  position: relative;
+}
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 2px solid var(--bg);
+  border-radius: 4px;
+}
+.top-note {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+.hero {
+  padding: 78px 0 68px;
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: currentColor;
+}
+.hero h1 {
+  margin: 18px 0 0;
+  font-size: clamp(42px, 6.5vw, 76px);
+  line-height: 1.06;
+  letter-spacing: -.055em;
+  max-width: 850px;
+}
+.hero p {
+  margin: 26px 0 0;
+  max-width: 700px;
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 19px);
+}
+.catalog {
+  padding: 58px 0 88px;
+}
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.section-head h2 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: -.035em;
+}
+.section-count {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.app-card {
+  min-height: 315px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--surface);
+  box-shadow: 0 1px 0 rgba(16,24,40,.02);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.app-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.app-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--line));
+  box-shadow: var(--shadow);
+}
+.card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.app-number {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: var(--muted);
+}
+.platform-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.app-main {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  margin-top: 24px;
+}
+.app-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+  display: block;
+  object-fit: cover;
+  background: #d1d5db;
+}
+.app-copy h3 {
+  margin: 2px 0 7px;
+  font-size: 23px;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+}
+.app-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14.5px;
+  word-break: keep-all;
+}
+.download-button {
+  margin-top: auto;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 13px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(23,105,224,.18);
+  transition: background-color .18s ease, transform .18s ease;
+}
+.download-button:hover { background: var(--accent-hover); }
+.download-button:active { transform: translateY(1px); }
+.download-button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.download-button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  outline-offset: 3px;
+}
+.footer {
+  padding: 24px 0 42px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+@media (max-width: 760px) {
+  .site-shell { width: min(calc(100% - 28px), var(--content)); }
+  .topbar { height: 62px; }
+  .top-note { display: none; }
+  .hero { padding: 52px 0 46px; }
+  .hero h1 { font-size: clamp(38px, 12vw, 58px); }
+  .hero p { margin-top: 20px; font-size: 16px; }
+  .catalog { padding: 40px 0 64px; }
+  .section-head { align-items: center; margin-bottom: 18px; }
+  .app-grid { grid-template-columns: 1fr; gap: 14px; }
+  .app-card, .app-card:last-child:nth-child(odd) { grid-column: auto; }
+  .app-card { min-height: 0; padding: 20px; }
+  .app-main { grid-template-columns: 64px minmax(0,1fr); gap: 14px; margin-top: 20px; }
+  .app-icon { width: 64px; height: 64px; border-radius: 16px; }
+  .app-copy h3 { font-size: 20px; }
+  .download-button { margin-top: 24px; }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d0f12;
+    --surface: #15181d;
+    --surface-soft: #1c2026;
+    --text: #f4f6f8;
+    --muted: #9da7b5;
+    --line: #282e36;
+    --accent: #4d92ff;
+    --accent-hover: #6ca5ff;
+    --accent-soft: #12254a;
+    --shadow: 0 18px 48px rgba(0,0,0,.28);
+  }
+  .download-button { color: #07101f; box-shadow: none; }
+  .brand-mark::after { border-color: #0d0f12; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<header class="site-shell topbar" aria-label="사이트 헤더">
+  <div class="brand"><span class="brand-mark" aria-hidden="true"></span>UTILITY LAB</div>
+  <div class="top-note">Windows용 개인 유틸리티</div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="site-shell">
+      <span class="eyebrow">유틸리티 다운로드</span>
+      <h1>필요한 도구를 바로 다운로드.</h1>
+      <p>복잡한 과정 없이 원하는 유틸리티를 선택하고 최신 Windows 설치 파일을 내려받으세요.</p>
+    </div>
+  </section>
+
+  <section class="catalog" aria-labelledby="utility-heading">
+    <div class="site-shell">
+      <div class="section-head">
+        <h2 id="utility-heading">유틸리티 선택</h2>
+        <span class="section-count">5개의 도구</span>
+      </div>
+      <div class="app-grid">
+        <article class="app-card">
+  <div class="card-topline">
+    <span class="app-number">01</span>
+    <span class="platform-badge">WINDOWS</span>
+  </div>
+  <div class="app-main">
+    <img class="app-icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%23D1D5DB'/%3E%3Cpath d='M40 64h48M64 40v48' stroke='%239CA3AF' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" alt="GifMaker 앱 아이콘 자리 표시자">
+    <div class="app-copy">
+      <h3>GifMaker</h3>
+      <p>화면을 녹화하고 원하는 장면을 간편하게 GIF로 만들어 보세요.</p>
+    </div>
+  </div>
+  <a class="download-button" href="./downloads/GifMaker.exe" download aria-label="GifMaker Windows EXE 다운로드">
+    <span>EXE 다운로드</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 18v2h14v-2"/></svg>
+  </a>
+</article>
+<article class="app-card">
+  <div class="card-topline">
+    <span class="app-number">02</span>
+    <span class="platform-badge">WINDOWS</span>
+  </div>
+  <div class="app-main">
+    <img class="app-icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%23D1D5DB'/%3E%3Cpath d='M40 64h48M64 40v48' stroke='%239CA3AF' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" alt="VideoCutter 앱 아이콘 자리 표시자">
+    <div class="app-copy">
+      <h3>VideoCutter</h3>
+      <p>동영상에서 필요한 구간만 빠르고 정확하게 잘라내세요.</p>
+    </div>
+  </div>
+  <a class="download-button" href="./downloads/VideoCutter.exe" download aria-label="VideoCutter Windows EXE 다운로드">
+    <span>EXE 다운로드</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 18v2h14v-2"/></svg>
+  </a>
+</article>
+<article class="app-card">
+  <div class="card-topline">
+    <span class="app-number">03</span>
+    <span class="platform-badge">WINDOWS</span>
+  </div>
+  <div class="app-main">
+    <img class="app-icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%23D1D5DB'/%3E%3Cpath d='M40 64h48M64 40v48' stroke='%239CA3AF' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" alt="SmcR 앱 아이콘 자리 표시자">
+    <div class="app-copy">
+      <h3>SmcR</h3>
+      <p>키보드와 마우스 동작을 안전하게 기록하고 반복 실행하세요.</p>
+    </div>
+  </div>
+  <a class="download-button" href="./downloads/SmcR.exe" download aria-label="SmcR Windows EXE 다운로드">
+    <span>EXE 다운로드</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 18v2h14v-2"/></svg>
+  </a>
+</article>
+<article class="app-card">
+  <div class="card-topline">
+    <span class="app-number">04</span>
+    <span class="platform-badge">WINDOWS</span>
+  </div>
+  <div class="app-main">
+    <img class="app-icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%23D1D5DB'/%3E%3Cpath d='M40 64h48M64 40v48' stroke='%239CA3AF' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" alt="포맷 복원 도우미 앱 아이콘 자리 표시자">
+    <div class="app-copy">
+      <h3>포맷 복원 도우미</h3>
+      <p>포맷 전 파일과 설치 앱 목록을 USB에 백업하고 포맷 후 그대로 복원하세요.</p>
+    </div>
+  </div>
+  <a class="download-button" href="./downloads/FormatRestoreHelper.exe" download aria-label="포맷 복원 도우미 Windows EXE 다운로드">
+    <span>EXE 다운로드</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 18v2h14v-2"/></svg>
+  </a>
+</article>
+<article class="app-card">
+  <div class="card-topline">
+    <span class="app-number">05</span>
+    <span class="platform-badge">WINDOWS</span>
+  </div>
+  <div class="app-main">
+    <img class="app-icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Crect width='128' height='128' rx='24' fill='%23D1D5DB'/%3E%3Cpath d='M40 64h48M64 40v48' stroke='%239CA3AF' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E" alt="TetherBrowser 앱 아이콘 자리 표시자">
+    <div class="app-copy">
+      <h3>TetherBrowser</h3>
+      <p>휴대폰 테더링 회선만 사용하도록 격리된 전용 브라우저입니다.</p>
+    </div>
+  </div>
+  <a class="download-button" href="./downloads/TetherBrowser.exe" download aria-label="TetherBrowser Windows EXE 다운로드">
+    <span>EXE 다운로드</span>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 18v2h14v-2"/></svg>
+  </a>
+</article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-shell footer">
+  원하는 프로그램의 EXE 설치 파일을 선택해 다운로드하세요.
+</footer>
+</body>
+</html>
