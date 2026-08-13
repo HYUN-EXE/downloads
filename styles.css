@@ -24,6 +24,7 @@
   --card-ink: #281832;
   --icon-tile: rgba(255, 255, 255, .68);
   --glow: rgba(255, 255, 255, .92);
+  --shape-blend: multiply;
   --glow-halo: .5;
   --c1: #f7e8ff; --c1a: #d8b4fe;
   --c2: #ffe8ef; --c2a: #fda4af;
@@ -175,10 +176,39 @@ h1 em {
   animation: fade-in .9s .15s ease-out both;
 }
 
+/* 배경 도형은 가로로 도는 캐러셀을 받쳐 주도록 가운데 띠 + 양끝 악센트로 배치한다 */
 .shape { position: absolute; display: block; }
-.shape-one { inset: 8% 3% 5% 8%; border-radius: 42% 58% 62% 38% / 47% 42% 58% 53%; background: var(--purple); transform: rotate(-5deg); }
-.shape-two { width: 42%; height: 42%; top: -1%; right: -3%; border-radius: 50%; background: var(--yellow); mix-blend-mode: multiply; }
-.shape-three { width: 31%; height: 31%; bottom: -4%; left: -2%; border-radius: 18px; background: var(--coral); transform: rotate(18deg); mix-blend-mode: multiply; }
+
+.shape-one {
+  top: 50%;
+  left: 50%;
+  width: 86%;
+  height: 216px;
+  border-radius: 46% 54% 52% 48% / 58% 44% 56% 42%;
+  background: var(--purple);
+  transform: translate(-50%, -50%) rotate(-4deg);
+}
+
+.shape-two {
+  width: 30%;
+  padding-top: 30%;
+  top: 8%;
+  right: 4%;
+  border-radius: 50%;
+  background: var(--yellow);
+  mix-blend-mode: var(--shape-blend);
+}
+
+.shape-three {
+  width: 23%;
+  padding-top: 23%;
+  bottom: 6%;
+  left: 3%;
+  border-radius: 22px;
+  background: var(--coral);
+  transform: rotate(16deg);
+  mix-blend-mode: var(--shape-blend);
+}
 
 /* 아이콘 타일 캐러셀: 3장이 반쯤 겹쳐 보이고, 가운데가 현재 순서다.
    역할(left/center/right)은 스크립트가 data-role로 지정한다. */
@@ -436,6 +466,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .intro { min-height: auto; padding: 3rem 0 4rem; }
   h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); }
   .visual { min-height: 280px; }
+  .shape-one { height: 170px; width: 94%; }
   .visual-card { width: 102px; height: 102px; border-radius: 24px; }
   .visual-card img { width: 68px; height: 68px; }
   .visual-label { right: 6%; }
@@ -464,6 +495,7 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
     --card-ink: #eceef2;
     --icon-tile: rgba(255, 255, 255, .07);
     --glow: rgba(255, 255, 255, .14);
+    --shape-blend: screen;
     --glow-halo: .35;
     --c1: #221c2c; --c1a: #7e22ce;
     --c2: #2a1d23; --c2a: #db2777;
