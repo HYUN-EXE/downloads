@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
-
 :root {
   --paper: #f5f1eb;
   --ink: #281832;
@@ -346,23 +344,6 @@ h1 em {
 .app-card:nth-child(7) { animation-delay: .42s; }
 .app-card:nth-child(8) { animation-delay: .49s; }
 
-/* hover 시 카드 위를 훑고 지나가는 광택 */
-.app-card::after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: -60%;
-  width: 45%;
-  height: 100%;
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent);
-  transform: skewX(-18deg);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.app-card:hover::after { animation: sheen .85s ease-out; }
-
 .app-card::before {
   content: "";
   position: absolute;
@@ -482,6 +463,7 @@ h1 em {
 .confirm h2 { margin-top: .7rem; font-size: 1.5rem; letter-spacing: -.03em; }
 .confirm-app { margin-top: 1.1rem; font-size: 1.05rem; font-weight: 800; }
 .confirm-note { margin-top: .35rem; color: var(--muted); font-size: .82rem; }
+.confirm-size { font-weight: 700; }
 
 .confirm-actions { display: flex; gap: .6rem; margin-top: 1.9rem; }
 
@@ -528,7 +510,6 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
 @keyframes float-one { 0%, 100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-12px) rotate(-5deg); } }
 @keyframes float-two { 0%, 100% { transform: translateY(0) rotate(8deg); } 50% { transform: translateY(12px) rotate(5deg); } }
 @keyframes hue-drift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-@keyframes sheen { from { left: -60%; opacity: 1; } to { left: 130%; opacity: 0; } }
 
 @media (max-width: 1000px) {
   .app-card { flex-basis: calc((100% - 1.25rem) / 2); }
@@ -589,14 +570,12 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .catalog { box-shadow: 0 32px 80px rgba(0, 0, 0, .45); }
   .shape-one { opacity: .5; }
   .shape-two, .shape-three { opacity: .8; }
-  .app-card::after { background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .1), transparent); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .intro-copy, .visual, .visual-card,
   .feature-list span, h1 em, .app-card { animation: none; }
-  .app-card:hover::after { animation: none; }
   .card-link, .cursor-glow { display: none; }
   .app-card, .download-button, .app-icon { transition: background .01ms, box-shadow .01ms; }
   .app-card:hover, .app-card:hover .app-icon { transform: none; }
