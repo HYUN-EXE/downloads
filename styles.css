@@ -203,8 +203,8 @@ h1 em {
 .shape-one {
   top: 50%;
   left: 50%;
-  width: 264px;
-  height: 264px;
+  width: 310px;
+  height: 310px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--purple), transparent 66%);
   opacity: .55;
@@ -246,17 +246,17 @@ h1 em {
   position: absolute;
   display: grid;
   place-items: center;
-  width: 124px;
-  height: 124px;
+  width: 152px;
+  height: 152px;
   border: 1px solid var(--surface-edge);
-  border-radius: 28px;
+  border-radius: 34px;
   background: var(--surface-strong);
   box-shadow: 0 22px 50px rgba(56, 22, 72, .2);
   backdrop-filter: blur(12px);
-  transition: transform .6s cubic-bezier(.4, 0, .2, 1), opacity .6s ease;
+  transition: transform .46s cubic-bezier(.4, 0, .2, 1), opacity .46s ease;
 }
 
-.visual-card img { width: 84px; height: 84px; object-fit: contain; }
+.visual-card img { width: 104px; height: 104px; object-fit: contain; }
 
 /* 스크립트가 준비되기 전에는 겹쳐 둔 채 두고, 준비되면 역할별로 배치한다 */
 .visual-stack[data-ready] .visual-card {
@@ -496,9 +496,9 @@ footer span { color: var(--ink); font-family: Inter, sans-serif; font-weight: 80
   .intro { min-height: auto; padding: 3rem 0 4rem; }
   h1 { font-size: clamp(2.5rem, 12vw, 3.4rem); }
   .visual { min-height: 280px; }
-  .shape-one { width: 212px; height: 212px; }
-  .visual-card { width: 102px; height: 102px; border-radius: 24px; }
-  .visual-card img { width: 68px; height: 68px; }
+  .shape-one { width: 248px; height: 248px; }
+  .visual-card { width: 122px; height: 122px; border-radius: 28px; }
+  .visual-card img { width: 82px; height: 82px; }
   .visual-label { right: 6%; }
   .catalog { padding: 1.4rem; border-radius: 25px; }
   .section-heading { display: block; }
