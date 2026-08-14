@@ -458,6 +458,57 @@ h1 em {
 .app-card:hover .download-button { opacity: .78; }
 
 
+/* 다운로드 전 확인 창 */
+.confirm {
+  width: min(420px, calc(100% - 2.5rem));
+  padding: 2.2rem;
+  border: none;
+  border-radius: 28px;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 40px 90px rgba(45, 23, 53, .3);
+}
+
+.confirm::backdrop { background: rgba(24, 12, 32, .55); backdrop-filter: blur(3px); }
+
+.confirm-kicker {
+  color: var(--magenta);
+  font-family: Inter, sans-serif;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .2em;
+}
+
+.confirm h2 { margin-top: .7rem; font-size: 1.5rem; letter-spacing: -.03em; }
+.confirm-app { margin-top: 1.1rem; font-size: 1.05rem; font-weight: 800; }
+.confirm-note { margin-top: .35rem; color: var(--muted); font-size: .82rem; }
+
+.confirm-actions { display: flex; gap: .6rem; margin-top: 1.9rem; }
+
+.confirm-actions > * {
+  flex: 1;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.confirm-cancel { color: var(--ink); background: transparent; }
+.confirm-cancel:hover { background: var(--surface); }
+
+.confirm-go { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+.confirm-go:hover { background: var(--purple); border-color: var(--purple); transform: translateY(-2px); }
+
+.confirm-actions > *:focus-visible { outline: 4px solid rgba(250, 204, 21, .7); outline-offset: 2px; }
+
 footer {
   width: min(1180px, calc(100% - 48px));
   min-height: 100px;

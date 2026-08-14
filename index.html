@@ -155,6 +155,17 @@
     <p>가볍고 유용한 Windows 도구</p>
   </footer>
 
+  <dialog class="confirm" aria-labelledby="confirm-title">
+    <p class="confirm-kicker">DOWNLOAD</p>
+    <h2 id="confirm-title">다운로드할까요?</h2>
+    <p class="confirm-app"></p>
+    <p class="confirm-note">Windows용 설치 파일(EXE)을 내려받습니다.</p>
+    <div class="confirm-actions">
+      <button class="confirm-cancel" type="button">취소</button>
+      <a class="confirm-go" href="#">다운로드</a>
+    </div>
+  </dialog>
+
   <script>
     const motionAllowed = !matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -196,6 +207,29 @@
           card.style.setProperty('--my', (event.clientY - box.top) + 'px');
         });
       }
+    }
+
+    // 카드를 누르면 바로 받지 않고 한 번 확인받는다.
+    // dialog를 지원하지 않는 브라우저에서는 링크가 원래대로 동작한다.
+    const confirmBox = document.querySelector('.confirm');
+    if (confirmBox && typeof confirmBox.showModal === 'function') {
+      const confirmApp = confirmBox.querySelector('.confirm-app');
+      const confirmGo = confirmBox.querySelector('.confirm-go');
+
+      for (const link of document.querySelectorAll('.card-link')) {
+        link.addEventListener('click', event => {
+          event.preventDefault();
+          confirmApp.textContent = link.closest('.app-card').querySelector('h3').textContent;
+          confirmGo.href = link.href;
+          confirmBox.showModal();
+        });
+      }
+
+      confirmGo.addEventListener('click', () => confirmBox.close());
+      confirmBox.querySelector('.confirm-cancel').addEventListener('click', () => confirmBox.close());
+      confirmBox.addEventListener('click', event => {
+        if (event.target === confirmBox) confirmBox.close();
+      });
     }
 
     // 히어로 아이콘 캐러셀: 이전 / 현재 / 다음 세 장만 두고 한 칸씩 넘긴다.
