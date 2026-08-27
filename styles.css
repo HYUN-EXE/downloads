@@ -253,10 +253,11 @@ footer p { font-size: .75rem; color: var(--muted); }
   width: min(420px, calc(100% - 2.5rem));
   height: fit-content;
   padding: 2.2rem;
-  border: 1px solid var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 18px;
   color: var(--ink);
   background: var(--paper);
-  box-shadow: 14px 14px 0 rgba(23, 21, 15, .12);
+  box-shadow: 0 26px 64px rgba(23, 21, 15, .24);
 }
 
 .confirm::backdrop { background: rgba(23, 21, 15, .5); }
@@ -283,6 +284,7 @@ footer p { font-size: .75rem; color: var(--muted); }
   align-items: center;
   justify-content: center;
   border: 1px solid var(--ink);
+  border-radius: 11px;
   color: var(--ink);
   background: transparent;
   font-family: inherit;
