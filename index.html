@@ -4,139 +4,125 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="GifMaker, VideoCutter, SmcR, 포맷 복원 도우미, TetherBrowser 다운로드">
-  <meta name="theme-color" content="#f5f1eb" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e0f13" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f4ec" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14120e" media="(prefers-color-scheme: dark)">
   <meta name="color-scheme" content="light dark">
   <title>유틸리티 도구 다운로드</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon.png" sizes="64x64">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gothic+A1:wght@300;400;500;700&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="cursor-glow" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="brand" href="./" aria-label="유틸리티 홈">
-      <span class="brand-mark" aria-hidden="true">U</span>
-      <strong>UTILITIES</strong>
-    </a>
+    <a class="wordmark" href="./">UTILITIES</a>
+    <span class="platform">WINDOWS</span>
   </header>
 
   <main>
     <section class="intro">
-      <div class="intro-copy">
-        <h1>유틸리티 도구<br><em>다운로드</em></h1>
-      </div>
-
-      <div class="visual" aria-hidden="true">
-        <span class="shape shape-one"></span>
-        <span class="shape shape-two"></span>
-        <span class="shape shape-three"></span>
-        <!-- 프로그램을 추가하면 여기에 타일을 하나 더 넣으면 된다. 배치는 자동으로 맞춰진다. -->
-        <div class="visual-stack">
-          <span class="visual-card"><img width="104" height="104" src="assets/gifmaker-icon.png" alt=""></span>
-          <span class="visual-card"><img width="104" height="104" src="assets/videocutter-icon.png" alt=""></span>
-          <span class="visual-card"><img width="104" height="104" src="assets/smcr-icon.png?v=1.5.1" alt=""></span>
-          <span class="visual-card"><img width="104" height="104" src="assets/formatrestore-icon.png" alt=""></span>
-          <span class="visual-card"><img width="104" height="104" src="assets/tetherbrowser-icon.png" alt=""></span>
-        </div>
-      </div>
+      <h1>유틸리티 도구 다운로드</h1>
+      <span class="hairline" aria-hidden="true"></span>
     </section>
 
-    <section class="catalog" aria-labelledby="catalog-title">
+    <section aria-labelledby="catalog-title">
       <div class="section-heading">
         <h2 id="catalog-title">유틸리티 선택</h2>
+        <span class="rule" aria-hidden="true"></span>
+        <span class="count">05 ITEMS</span>
       </div>
 
-      <div class="app-grid">
-        <article class="app-card">
-          <div class="app-topline">
-            <span class="number">01</span>
-          </div>
-          <div class="app-icon"><img width="84" height="84" src="assets/gifmaker-icon.png" alt="GifMaker 아이콘"></div>
-          <div class="app-copy">
+      <ul class="app-list">
+        <li class="app-row">
+          <span class="row-number">01</span>
+          <img class="row-icon" width="68" height="68" src="assets/gifmaker-icon.png" alt="GifMaker 아이콘">
+          <div class="row-copy">
             <h3>GifMaker</h3>
             <p>화면을 녹화하고 원하는 장면을 간편하게 GIF로 만들어 보세요.</p>
           </div>
-          <a class="card-link" href="https://github.com/HYUN-EXE/GifMaker-Releases/releases/latest/download/GifMaker_Setup.exe" data-size="약 92MB" aria-label="GifMaker EXE 다운로드"></a>
-          <span class="download-button">
-            <span>EXE 다운로드</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </span>
-        </article>
-
-        <article class="app-card">
-          <div class="app-topline">
-            <span class="number">02</span>
+          <div class="row-action">
+            <span class="row-meta">92 MB</span>
+            <span class="row-download">EXE 다운로드
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
+            </span>
           </div>
-          <div class="app-icon"><img width="84" height="84" src="assets/videocutter-icon.png" alt="VideoCutter 아이콘"></div>
-          <div class="app-copy">
+          <a class="row-link" href="https://github.com/HYUN-EXE/GifMaker-Releases/releases/latest/download/GifMaker_Setup.exe" data-size="약 92MB" aria-label="GifMaker EXE 다운로드"></a>
+        </li>
+
+        <li class="app-row">
+          <span class="row-number">02</span>
+          <img class="row-icon" width="68" height="68" src="assets/videocutter-icon.png" alt="VideoCutter 아이콘">
+          <div class="row-copy">
             <h3>VideoCutter</h3>
             <p>동영상에서 필요한 구간만 빠르고 정확하게 잘라내세요.</p>
           </div>
-          <a class="card-link" href="https://github.com/HYUN-EXE/VideoCutter-Releases/releases/latest/download/VideoCutter_Setup.exe" data-size="약 132MB" aria-label="VideoCutter EXE 다운로드"></a>
-          <span class="download-button">
-            <span>EXE 다운로드</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </span>
-        </article>
-
-        <article class="app-card">
-          <div class="app-topline">
-            <span class="number">03</span>
+          <div class="row-action">
+            <span class="row-meta">132 MB</span>
+            <span class="row-download">EXE 다운로드
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
+            </span>
           </div>
-          <div class="app-icon"><img width="84" height="84" src="assets/smcr-icon.png?v=1.5.1" alt="SmcR 아이콘"></div>
-          <div class="app-copy">
+          <a class="row-link" href="https://github.com/HYUN-EXE/VideoCutter-Releases/releases/latest/download/VideoCutter_Setup.exe" data-size="약 132MB" aria-label="VideoCutter EXE 다운로드"></a>
+        </li>
+
+        <li class="app-row">
+          <span class="row-number">03</span>
+          <img class="row-icon" width="68" height="68" src="assets/smcr-icon.png?v=1.5.1" alt="SmcR 아이콘">
+          <div class="row-copy">
             <h3>SmcR</h3>
             <p>키보드와 마우스 동작을 안전하게 기록하고 반복 실행하세요.</p>
           </div>
-          <a class="card-link" href="https://github.com/HYUN-EXE/SimpleMacro-Releases/releases/latest/download/SmcR_Setup.exe" data-size="약 126MB" aria-label="SmcR EXE 다운로드"></a>
-          <span class="download-button">
-            <span>EXE 다운로드</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </span>
-        </article>
-
-        <article class="app-card">
-          <div class="app-topline">
-            <span class="number">04</span>
+          <div class="row-action">
+            <span class="row-meta">126 MB</span>
+            <span class="row-download">EXE 다운로드
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
+            </span>
           </div>
-          <div class="app-icon"><img width="84" height="84" src="assets/formatrestore-icon.png" alt="포맷 복원 도우미 아이콘"></div>
-          <div class="app-copy">
+          <a class="row-link" href="https://github.com/HYUN-EXE/SimpleMacro-Releases/releases/latest/download/SmcR_Setup.exe" data-size="약 126MB" aria-label="SmcR EXE 다운로드"></a>
+        </li>
+
+        <li class="app-row">
+          <span class="row-number">04</span>
+          <img class="row-icon" width="68" height="68" src="assets/formatrestore-icon.png" alt="포맷 복원 도우미 아이콘">
+          <div class="row-copy">
             <h3>포맷 복원 도우미</h3>
             <p>포맷 전 파일과 설치 앱 목록을 USB에 백업하고 포맷 후 그대로 복원하세요.</p>
           </div>
-          <a class="card-link" href="https://github.com/HYUN-EXE/FormatRestoreHelper-Releases/releases/latest/download/FormatRestoreHelper_Setup.exe" data-size="약 109MB" aria-label="포맷 복원 도우미 EXE 다운로드"></a>
-          <span class="download-button">
-            <span>EXE 다운로드</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </span>
-        </article>
-
-        <article class="app-card">
-          <div class="app-topline">
-            <span class="number">05</span>
+          <div class="row-action">
+            <span class="row-meta">109 MB</span>
+            <span class="row-download">EXE 다운로드
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
+            </span>
           </div>
-          <div class="app-icon"><img width="84" height="84" src="assets/tetherbrowser-icon.png" alt="TetherBrowser 아이콘"></div>
-          <div class="app-copy">
+          <a class="row-link" href="https://github.com/HYUN-EXE/FormatRestoreHelper-Releases/releases/latest/download/FormatRestoreHelper_Setup.exe" data-size="약 109MB" aria-label="포맷 복원 도우미 EXE 다운로드"></a>
+        </li>
+
+        <li class="app-row">
+          <span class="row-number">05</span>
+          <img class="row-icon" width="68" height="68" src="assets/tetherbrowser-icon.png" alt="TetherBrowser 아이콘">
+          <div class="row-copy">
             <h3>TetherBrowser</h3>
             <p>휴대폰 테더링 회선만 사용하도록 격리된 전용 브라우저입니다.</p>
           </div>
-          <a class="card-link" href="https://github.com/HYUN-EXE/TetherBrowser-Releases/releases/latest/download/TetherBrowser_Setup.exe" data-size="약 75MB" aria-label="TetherBrowser EXE 다운로드"></a>
-          <span class="download-button">
-            <span>EXE 다운로드</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          </span>
-        </article>
-      </div>
+          <div class="row-action">
+            <span class="row-meta">75 MB</span>
+            <span class="row-download">EXE 다운로드
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
+            </span>
+          </div>
+          <a class="row-link" href="https://github.com/HYUN-EXE/TetherBrowser-Releases/releases/latest/download/TetherBrowser_Setup.exe" data-size="약 75MB" aria-label="TetherBrowser EXE 다운로드"></a>
+        </li>
+      </ul>
     </section>
   </main>
 
   <footer>
-    <span>UTILITIES</span>
+    <span class="wordmark">UTILITIES</span>
+    <p>HYUN-EXE</p>
   </footer>
 
   <dialog class="confirm" aria-labelledby="confirm-title">
@@ -183,18 +169,12 @@
       addEventListener('pointerenter', () => { if (following) document.body.dataset.cursor = ''; });
     }
 
-    // 카드 위 커서 좌표를 CSS 변수로 넘겨 발광이 마우스를 따라오게 한다.
-    if (motionAllowed) {
-      for (const card of document.querySelectorAll('.app-card')) {
-        card.addEventListener('pointermove', event => {
-          const box = card.getBoundingClientRect();
-          card.style.setProperty('--mx', (event.clientX - box.left) + 'px');
-          card.style.setProperty('--my', (event.clientY - box.top) + 'px');
-        });
-      }
-    }
+    // 목록 개수는 세어서 넣는다. 프로그램을 추가해도 라벨을 고칠 필요가 없다.
+    const rows = Array.from(document.querySelectorAll('.app-row'));
+    const count = document.querySelector('.section-heading .count');
+    if (count) count.textContent = String(rows.length).padStart(2, '0') + ' ITEMS';
 
-    // 카드를 누르면 바로 받지 않고 한 번 확인받는다.
+    // 행을 누르면 바로 받지 않고 한 번 확인받는다.
     // dialog를 지원하지 않는 브라우저에서는 링크가 원래대로 동작한다.
     const confirmBox = document.querySelector('.confirm');
     if (confirmBox && typeof confirmBox.showModal === 'function') {
@@ -202,17 +182,17 @@
       const confirmSize = confirmBox.querySelector('.confirm-size');
       const confirmGo = confirmBox.querySelector('.confirm-go');
 
-      for (const link of document.querySelectorAll('.card-link')) {
+      for (const link of document.querySelectorAll('.row-link')) {
         link.addEventListener('click', event => {
           event.preventDefault();
-          confirmApp.textContent = link.closest('.app-card').querySelector('h3').textContent;
+          confirmApp.textContent = link.closest('.app-row').querySelector('h3').textContent;
           confirmSize.textContent = link.dataset.size ? ' · ' + link.dataset.size : '';
           confirmGo.href = link.href;
           confirmBox.showModal();
         });
       }
 
-      // 링크 기본 동작에 맡기면 close()로 창이 사라지는 순간 다운로드가 취소된다.
+      // 링크 기본 동작에 맡기면 close()로 창이 사라지는 순간 다운로드가 취소될 수 있다.
       // 주소를 직접 넘겨 내려받기를 시작한 뒤 창을 닫는다.
       confirmGo.addEventListener('click', event => {
         event.preventDefault();
@@ -232,52 +212,6 @@
           event.clientY >= box.top && event.clientY <= box.bottom;
         if (!insideBox) confirmBox.close();
       });
-    }
-
-    // 히어로 아이콘 캐러셀: 이전 / 현재 / 다음 세 장만 두고 한 칸씩 넘긴다.
-    const stack = document.querySelector('.visual-stack');
-    if (stack) {
-      const tiles = Array.from(stack.children);
-      const total = tiles.length;
-      let center = total > 1 ? 1 : 0;
-
-      const place = () => {
-        tiles.forEach((tile, index) => {
-          const offset = (index - center + total) % total;
-          tile.dataset.role =
-            offset === 0 ? 'center' :
-            offset === 1 ? 'right' :
-            offset === total - 1 ? 'left' : '';
-        });
-      };
-
-      stack.dataset.ready = '';
-      place();
-
-      const label = document.querySelector('.visual-label');
-      if (label) label.textContent = total + ' APPS';
-
-      if (total > 1) {
-        let timer = null;
-        const start = () => {
-          timer = timer || setInterval(() => {
-            center = (center + 1) % total;
-            place();
-          }, 2000);
-        };
-        const stop = () => {
-          clearInterval(timer);
-          timer = null;
-        };
-
-        start();
-
-        // 자동으로 넘어가는 동안 들여다보기 어려우므로 마우스를 올리면 멈춘다
-        const visual = stack.closest('.visual') || stack;
-        visual.addEventListener('pointerenter', stop);
-        visual.addEventListener('pointerleave', start);
-        addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-      }
     }
   </script>
 </body>
