@@ -321,25 +321,6 @@ footer p { font-size: .75rem; color: var(--muted); }
   .confirm { padding: 1.6rem; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #14120e;
-    --ink: #efe9dc;
-    --body: #a79d8b;
-    --muted: #94897a;
-    --rule: #332e26;
-    --numeral: #4d463b;
-    --accent: #d98263;
-    --wash: rgba(217, 130, 99, .07);
-    --grain: .18;
-    --cursor-light: radial-gradient(circle, rgba(217, 130, 99, .12), rgba(217, 130, 99, .05) 45%, transparent 70%);
-  }
-
-  body::after { mix-blend-mode: screen; }
-  .confirm { box-shadow: 14px 14px 0 rgba(0, 0, 0, .45); }
-  .app-row:hover .row-icon { filter: drop-shadow(0 10px 16px rgba(0, 0, 0, .5)); }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   h1, .hairline, .app-row, .wordmark { animation: none; }
