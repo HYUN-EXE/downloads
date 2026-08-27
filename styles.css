@@ -246,7 +246,12 @@ footer p { font-size: .75rem; color: var(--muted); }
 
 /* 다운로드 전 확인 창 */
 .confirm {
+  /* 전역 리셋의 margin: 0 이 dialog 기본 중앙 정렬을 지우므로 다시 세운다 */
+  position: fixed;
+  inset: 0;
+  margin: auto;
   width: min(420px, calc(100% - 2.5rem));
+  height: fit-content;
   padding: 2.2rem;
   border: 1px solid var(--ink);
   color: var(--ink);
