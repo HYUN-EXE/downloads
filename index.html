@@ -21,23 +21,14 @@
   <header class="site-header">
     <a class="brand" href="./" aria-label="유틸리티 홈">
       <span class="brand-mark" aria-hidden="true">U</span>
-      <span>
-        <strong>UTILITIES</strong>
-        <small>Windows tools</small>
-      </span>
+      <strong>UTILITIES</strong>
     </a>
-    <span class="header-note"><i></i> 최신 설치 파일</span>
   </header>
 
   <main>
     <section class="intro">
       <div class="intro-copy">
         <h1>유틸리티 도구<br><em>다운로드</em></h1>
-        <div class="feature-list" aria-label="배포 특징">
-          <span>Windows 10/11</span>
-          <span>직접 다운로드</span>
-          <span>SHA-256 제공</span>
-        </div>
       </div>
 
       <div class="visual" aria-hidden="true">
@@ -52,24 +43,18 @@
           <span class="visual-card"><img width="104" height="104" src="assets/formatrestore-icon.png" alt=""></span>
           <span class="visual-card"><img width="104" height="104" src="assets/tetherbrowser-icon.png" alt=""></span>
         </div>
-        <span class="visual-label">5 APPS</span>
       </div>
     </section>
 
     <section class="catalog" aria-labelledby="catalog-title">
       <div class="section-heading">
-        <div>
-          <p class="section-kicker">DOWNLOADS</p>
-          <h2 id="catalog-title">유틸리티 선택</h2>
-        </div>
-        <p>사용할 프로그램을 선택하세요.</p>
+        <h2 id="catalog-title">유틸리티 선택</h2>
       </div>
 
       <div class="app-grid">
         <article class="app-card">
           <div class="app-topline">
             <span class="number">01</span>
-            <span class="platform">WINDOWS</span>
           </div>
           <div class="app-icon"><img width="84" height="84" src="assets/gifmaker-icon.png" alt="GifMaker 아이콘"></div>
           <div class="app-copy">
@@ -86,7 +71,6 @@
         <article class="app-card">
           <div class="app-topline">
             <span class="number">02</span>
-            <span class="platform">WINDOWS</span>
           </div>
           <div class="app-icon"><img width="84" height="84" src="assets/videocutter-icon.png" alt="VideoCutter 아이콘"></div>
           <div class="app-copy">
@@ -103,7 +87,6 @@
         <article class="app-card">
           <div class="app-topline">
             <span class="number">03</span>
-            <span class="platform">WINDOWS</span>
           </div>
           <div class="app-icon"><img width="84" height="84" src="assets/smcr-icon.png?v=1.5.1" alt="SmcR 아이콘"></div>
           <div class="app-copy">
@@ -120,7 +103,6 @@
         <article class="app-card">
           <div class="app-topline">
             <span class="number">04</span>
-            <span class="platform">WINDOWS</span>
           </div>
           <div class="app-icon"><img width="84" height="84" src="assets/formatrestore-icon.png" alt="포맷 복원 도우미 아이콘"></div>
           <div class="app-copy">
@@ -137,7 +119,6 @@
         <article class="app-card">
           <div class="app-topline">
             <span class="number">05</span>
-            <span class="platform">WINDOWS</span>
           </div>
           <div class="app-icon"><img width="84" height="84" src="assets/tetherbrowser-icon.png" alt="TetherBrowser 아이콘"></div>
           <div class="app-copy">
@@ -156,7 +137,6 @@
 
   <footer>
     <span>UTILITIES</span>
-    <p>가볍고 유용한 Windows 도구</p>
   </footer>
 
   <dialog class="confirm" aria-labelledby="confirm-title">
@@ -175,13 +155,14 @@
 
     // 페이지 전체를 따라다니는 커서 빛. 살짝 늦게 따라와야 부드럽게 보인다.
     const cursorGlow = document.querySelector('.cursor-glow');
-    if (cursorGlow && motionAllowed && matchMedia('(pointer: fine)').matches) {
+    if (cursorGlow && matchMedia('(pointer: fine)').matches) {
+      const ease = motionAllowed ? .12 : 1;
       let pointerX = innerWidth / 2, pointerY = innerHeight / 2;
       let glowX = pointerX, glowY = pointerY, following = false;
 
       const follow = () => {
-        glowX += (pointerX - glowX) * .12;
-        glowY += (pointerY - glowY) * .12;
+        glowX += (pointerX - glowX) * ease;
+        glowY += (pointerY - glowY) * ease;
         cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
         requestAnimationFrame(follow);
       };
@@ -231,10 +212,25 @@
         });
       }
 
-      confirmGo.addEventListener('click', () => confirmBox.close());
+      // 링크 기본 동작에 맡기면 close()로 창이 사라지는 순간 다운로드가 취소된다.
+      // 주소를 직접 넘겨 내려받기를 시작한 뒤 창을 닫는다.
+      confirmGo.addEventListener('click', event => {
+        event.preventDefault();
+        const target = confirmGo.href;
+        confirmBox.close();
+        location.href = target;
+      });
+
       confirmBox.querySelector('.confirm-cancel').addEventListener('click', () => confirmBox.close());
+
+      // 바깥(배경)을 눌렀을 때만 닫는다. 창 안쪽 여백은 배경과 같은 대상으로 잡히므로 좌표로 가른다.
       confirmBox.addEventListener('click', event => {
-        if (event.target === confirmBox) confirmBox.close();
+        if (event.target !== confirmBox) return;
+        const box = confirmBox.getBoundingClientRect();
+        const insideBox =
+          event.clientX >= box.left && event.clientX <= box.right &&
+          event.clientY >= box.top && event.clientY <= box.bottom;
+        if (!insideBox) confirmBox.close();
       });
     }
 
@@ -261,7 +257,7 @@
       const label = document.querySelector('.visual-label');
       if (label) label.textContent = total + ' APPS';
 
-      if (motionAllowed && total > 1) {
+      if (total > 1) {
         let timer = null;
         const start = () => {
           timer = timer || setInterval(() => {
