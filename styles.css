@@ -128,7 +128,8 @@ h1 {
   border-bottom: 1px solid var(--rule);
   cursor: pointer;
   transition: background-color .35s ease;
-  animation: ink-rise .65s cubic-bezier(.2, .85, .3, 1) both;
+  /* 등장 순번은 마크업의 --i가 넘긴다. 첫 프레임부터 계단이 맞고 행 수 제한도 없다 */
+  animation: ink-rise .65s calc(.34s + var(--i, 0) * .08s) cubic-bezier(.2, .85, .3, 1) both;
 }
 
 .app-row:last-child { border-bottom-color: var(--ink); }
@@ -148,15 +149,6 @@ h1 {
 }
 
 .app-row:hover::before { transform: scaleY(1); }
-
-.app-row:nth-child(1) { animation-delay: .34s; }
-.app-row:nth-child(2) { animation-delay: .42s; }
-.app-row:nth-child(3) { animation-delay: .5s; }
-.app-row:nth-child(4) { animation-delay: .58s; }
-.app-row:nth-child(5) { animation-delay: .66s; }
-.app-row:nth-child(6) { animation-delay: .74s; }
-.app-row:nth-child(7) { animation-delay: .82s; }
-.app-row:nth-child(8) { animation-delay: .9s; }
 
 .row-number {
   font-family: "Nanum Myeongjo", serif;
@@ -274,6 +266,19 @@ footer p { font-size: .75rem; color: var(--muted); }
 .confirm-app { margin-top: 1.1rem; font-family: "Nanum Myeongjo", serif; font-size: 1.15rem; font-weight: 700; }
 .confirm-note { margin-top: .3rem; font-size: .8rem; color: var(--muted); }
 .confirm-size { font-weight: 700; }
+
+.confirm-hash {
+  display: inline-block;
+  margin-top: .5rem;
+  color: var(--muted);
+  font-size: .74rem;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 3px;
+}
+
+.confirm-hash[hidden] { display: none; }
+.confirm-hash:hover { color: var(--accent); text-decoration-color: currentColor; }
+.confirm-hash:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 .confirm-actions { display: flex; gap: .6rem; margin-top: 1.9rem; }
 
