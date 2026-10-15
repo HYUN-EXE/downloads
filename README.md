@@ -7,6 +7,7 @@
 - SmcR 배포: <https://github.com/HYUN-EXE/SimpleMacro-Releases>
 - 포맷 복원 도우미 배포: <https://github.com/HYUN-EXE/FormatRestoreHelper-Releases>
 - TetherBrowser 배포: <https://github.com/HYUN-EXE/TetherBrowser-Releases>
+- 확장자변환기(FormatChanger) 배포: <https://github.com/HYUN-EXE/FormatChanger-Releases>
 - 비공개 애플리케이션 소스는 이 저장소에 포함하지 않습니다.
 
 GitHub의 `main` 브랜치가 Cloudflare Pages에 연결되어 있어 홈페이지 변경사항을 푸시하면 자동으로 배포됩니다.
@@ -45,6 +46,13 @@ GitHub의 `main` 브랜치가 Cloudflare Pages에 연결되어 있어 홈페이�
 - 사용자 다운로드 자산: `TetherBrowser_Setup.exe`
 - 자동 업데이트 전송 자산: `TetherBrowser_Setup.zip`, `update.json`
 - 해시 자산 없음
+
+### 확장자변환기(FormatChanger)
+
+- Release 태그: `v0.1.0`과 같은 버전 형식
+- 사용자 다운로드 자산: `FormatChanger_Setup.exe`, `FormatChanger_Setup.exe.sha256` (설치 프로그램, ffmpeg 포함)
+- 자동 업데이트 전송 자산: `FormatChanger_Setup.zip`, `FormatChanger_Setup.zip.sha256`, `update.json` (Release 자산, `releases/latest/download/update.json`으로 읽음)
+- ZIP과 해시·설치 파일을 먼저 올리고 `update.json`을 마지막에 올립니다.
 
 ## 무결성 확인
 
