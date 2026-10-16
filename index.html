@@ -3,225 +3,272 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="GifMaker, VideoCutter, SmcR, 포맷 복원 도우미, TetherBrowser, 확장자변환기 다운로드">
-  <meta name="theme-color" content="#f7f4ec">
+  <meta name="description" content="GifMaker, VideoCutter, SmcR, 포맷 복원 도우미, TetherBrowser, 확장자변환기를 한곳에서 확인하고 다운로드하세요.">
+  <meta name="theme-color" content="#0d1728">
   <meta name="color-scheme" content="light">
-  <title>유틸리티 도구 다운로드</title>
+  <title>HYUN Utilities — 필요한 순간, 딱 맞는 도구</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon.png" sizes="64x64">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Gothic+A1:wght@300;400;500;700&display=swap">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20261016-5">
 </head>
 <body>
-  <div class="cursor-glow" aria-hidden="true"></div>
+  <a class="skip-link" href="#catalog">프로그램 목록으로 건너뛰기</a>
 
   <header class="site-header">
-    <a class="wordmark" href="./">UTILITIES</a>
-    <span class="platform">WINDOWS</span>
+    <div class="header-inner wrap">
+      <a class="wordmark" href="./" aria-label="HYUN Utilities 홈">
+        <span class="brand-mark" aria-hidden="true">h.</span>
+        <span class="brand-name">HYUN <span>/ utilities</span></span>
+      </a>
+      <nav aria-label="주 메뉴">
+        <a href="#catalog">도구 모음</a>
+        <a href="#guide">이용 안내</a>
+        <a class="nav-github" href="https://github.com/HYUN-EXE/downloads" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section class="intro">
-      <h1>유틸리티 도구 다운로드</h1>
-      <span class="hairline" aria-hidden="true"></span>
-    </section>
-
-    <section aria-labelledby="catalog-title">
-      <div class="section-heading">
-        <h2 id="catalog-title">유틸리티 선택</h2>
-        <span class="rule" aria-hidden="true"></span>
-        <span class="count">06 ITEMS</span>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true"></span> WINDOWS TOOLKIT · BY HYUN</p>
+        <h1 id="hero-title">필요한 순간,<br><em>딱 맞는 도구.</em></h1>
+        <p class="hero-description">만들기, 편집, 자동화, 복원까지.<br>일상의 번거로운 작업을 빠르게 끝내는 Windows 유틸리티를 모았습니다.</p>
+        <div class="hero-actions">
+          <a class="primary-cta" href="#catalog">도구 살펴보기 <span aria-hidden="true">↓</span></a>
+          <a class="text-cta" href="#guide">다운로드 안내 <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="hero-facts" aria-label="사이트 특징">
+          <li><strong>06</strong><span>개의 도구</span></li>
+          <li><strong>Windows</strong><span>설치 파일</span></li>
+          <li><strong>GitHub</strong><span>릴리스 연결</span></li>
+        </ul>
       </div>
 
-      <ul class="app-list">
-        <li class="app-row" style="--i:0">
-          <span class="row-number">01</span>
-          <img class="row-icon" width="68" height="68" src="assets/gifmaker-icon.png" alt="GifMaker 아이콘">
-          <div class="row-copy">
-            <h3>GifMaker</h3>
-            <p>화면을 녹화하고 원하는 장면을 간편하게 GIF로 만들어 보세요.</p>
+      <div class="hero-art" aria-hidden="true">
+        <span class="orbit orbit-one"></span>
+        <span class="orbit orbit-two"></span>
+        <div class="toolbox-window">
+          <div class="toolbox-bar">
+            <span class="window-dots">● ● ●</span>
+            <span>HYUN TOOLBOX</span>
+            <span>06 APPS</span>
           </div>
-          <div class="row-action">
-            <span class="row-meta">92 MB</span>
-            <span class="row-download">EXE 다운로드
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
-            </span>
+          <div class="toolbox-grid">
+            <div class="tool-tile tile-coral"><img src="assets/gifmaker-icon.png" alt="" width="68" height="68"><span>GIF</span></div>
+            <div class="tool-tile tile-blue"><img src="assets/videocutter-icon.png" alt="" width="68" height="68"><span>VIDEO</span></div>
+            <div class="tool-tile tile-mint"><img src="assets/smcr-icon.png?v=1.5.1" alt="" width="68" height="68"><span>AUTO</span></div>
+            <div class="tool-tile tile-slate"><img src="assets/formatrestore-icon.png" alt="" width="68" height="68"><span>RESTORE</span></div>
+            <div class="tool-tile tile-sky"><img src="assets/tetherbrowser-icon.png" alt="" width="68" height="68"><span>BROWSE</span></div>
+            <div class="tool-tile tile-indigo"><img src="assets/formatchanger-icon.png" alt="" width="68" height="68"><span>CONVERT</span></div>
           </div>
-          <a class="row-link" href="https://github.com/HYUN-EXE/GifMaker-Releases/releases/latest/download/GifMaker_Setup.exe" data-hash aria-label="GifMaker EXE 다운로드"></a>
+          <div class="toolbox-footer"><span><i></i> READY TO USE</span><span>SMALL TOOLS, BIG DIFFERENCE.</span></div>
+        </div>
+        <span class="art-sticker sticker-one">MAKE</span>
+        <span class="art-sticker sticker-two">DO</span>
+      </div>
+    </section>
+
+    <section class="intro wrap" aria-labelledby="intro-title">
+      <p class="section-kicker">BUILT FOR EVERYDAY WORK</p>
+      <div class="intro-layout">
+        <h2 id="intro-title">복잡한 기능보다,<br>분명한 해결에 집중했습니다.</h2>
+        <p>필요한 기능을 빠르게 찾고, 프로그램과 파일 정보를 확인한 뒤 바로 내려받을 수 있습니다. 작업에 맞는 도구를 골라보세요.</p>
+      </div>
+    </section>
+
+    <section class="catalog wrap" id="catalog" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">THE COLLECTION</p>
+          <h2 id="catalog-title">어떤 작업이 필요한가요?<span class="count">06</span></h2>
+        </div>
+        <p class="section-note">작업별로 골라보고 바로 다운로드하세요.</p>
+      </div>
+
+      <div class="catalog-toolbar">
+        <div class="filters" role="group" aria-label="프로그램 분류" hidden>
+          <button type="button" data-filter="all" aria-pressed="true" aria-controls="app-list">전체</button>
+          <button type="button" data-filter="media" aria-pressed="false" aria-controls="app-list">미디어</button>
+          <button type="button" data-filter="automation" aria-pressed="false" aria-controls="app-list">자동화</button>
+          <button type="button" data-filter="system" aria-pressed="false" aria-controls="app-list">시스템</button>
+        </div>
+        <span class="results-count" role="status" aria-live="polite">6개의 프로그램</span>
+      </div>
+
+      <ul class="app-list" id="app-list">
+        <li data-category="media" class="app-card app-coral">
+          <div class="card-top"><span class="app-category">화면 녹화 · GIF</span><span class="card-index">01</span></div>
+          <div class="product-heading">
+            <div class="icon-stage"><img class="row-icon" width="68" height="68" src="assets/gifmaker-icon.png" alt="GifMaker 아이콘"></div>
+            <div class="product-name"><h3>GifMaker</h3><p>순간을 GIF로.</p></div>
+          </div>
+          <p class="product-description">화면을 녹화하고 원하는 장면을 간편하게 GIF로 만들어 보세요.</p>
+          <ul class="feature-list" aria-label="주요 기능"><li>화면 녹화</li><li>GIF 제작</li></ul>
+          <div class="card-action">
+            <span class="file-info"><span>Windows · EXE</span><strong>92 MB</strong></span>
+            <a class="download-link" href="https://github.com/HYUN-EXE/GifMaker-Releases/releases/latest/download/GifMaker_Setup.exe" data-hash aria-label="GifMaker EXE 다운로드">EXE 받기 <span aria-hidden="true">↓</span></a>
+          </div>
         </li>
 
-        <li class="app-row" style="--i:1">
-          <span class="row-number">02</span>
-          <img class="row-icon" width="68" height="68" src="assets/videocutter-icon.png" alt="VideoCutter 아이콘">
-          <div class="row-copy">
-            <h3>VideoCutter</h3>
-            <p>동영상에서 필요한 구간만 빠르고 정확하게 잘라내세요.</p>
+        <li data-category="media" class="app-card app-blue">
+          <div class="card-top"><span class="app-category">동영상 편집</span><span class="card-index">02</span></div>
+          <div class="product-heading">
+            <div class="icon-stage"><img class="row-icon" width="68" height="68" src="assets/videocutter-icon.png" alt="VideoCutter 아이콘"></div>
+            <div class="product-name"><h3>VideoCutter</h3><p>필요한 장면만.</p></div>
           </div>
-          <div class="row-action">
-            <span class="row-meta">132 MB</span>
-            <span class="row-download">EXE 다운로드
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
-            </span>
+          <p class="product-description">동영상에서 필요한 구간만 빠르고 정확하게 잘라내세요.</p>
+          <ul class="feature-list" aria-label="주요 기능"><li>구간 선택</li><li>동영상 자르기</li></ul>
+          <div class="card-action">
+            <span class="file-info"><span>Windows · EXE</span><strong>132 MB</strong></span>
+            <a class="download-link" href="https://github.com/HYUN-EXE/VideoCutter-Releases/releases/latest/download/VideoCutter_Setup.exe" data-hash aria-label="VideoCutter EXE 다운로드">EXE 받기 <span aria-hidden="true">↓</span></a>
           </div>
-          <a class="row-link" href="https://github.com/HYUN-EXE/VideoCutter-Releases/releases/latest/download/VideoCutter_Setup.exe" data-hash aria-label="VideoCutter EXE 다운로드"></a>
         </li>
 
-        <li class="app-row" style="--i:2">
-          <span class="row-number">03</span>
-          <img class="row-icon" width="68" height="68" src="assets/smcr-icon.png?v=1.5.1" alt="SmcR 아이콘">
-          <div class="row-copy">
-            <h3>SmcR</h3>
-            <p>키보드와 마우스 동작을 안전하게 기록하고 반복 실행하세요.</p>
+        <li data-category="automation" class="app-card app-mint">
+          <div class="card-top"><span class="app-category">반복 작업 자동화</span><span class="card-index">03</span></div>
+          <div class="product-heading">
+            <div class="icon-stage"><img class="row-icon" width="68" height="68" src="assets/smcr-icon.png?v=1.5.1" alt="SmcR 아이콘"></div>
+            <div class="product-name"><h3>SmcR</h3><p>반복은 맡기세요.</p></div>
           </div>
-          <div class="row-action">
-            <span class="row-meta">126 MB</span>
-            <span class="row-download">EXE 다운로드
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
-            </span>
+          <p class="product-description">키보드와 마우스 동작을 안전하게 기록하고 반복 실행하세요.</p>
+          <ul class="feature-list" aria-label="주요 기능"><li>키보드 기록</li><li>마우스 기록</li></ul>
+          <div class="card-action">
+            <span class="file-info"><span>Windows · EXE</span><strong>126 MB</strong></span>
+            <a class="download-link" href="https://github.com/HYUN-EXE/SimpleMacro-Releases/releases/latest/download/SmcR_Setup.exe" data-hash aria-label="SmcR EXE 다운로드">EXE 받기 <span aria-hidden="true">↓</span></a>
           </div>
-          <a class="row-link" href="https://github.com/HYUN-EXE/SimpleMacro-Releases/releases/latest/download/SmcR_Setup.exe" data-hash aria-label="SmcR EXE 다운로드"></a>
         </li>
 
-        <li class="app-row" style="--i:3">
-          <span class="row-number">04</span>
-          <img class="row-icon" width="68" height="68" src="assets/formatrestore-icon.png" alt="포맷 복원 도우미 아이콘">
-          <div class="row-copy">
-            <h3>포맷 복원 도우미</h3>
-            <p>포맷 전 파일과 설치 앱 목록을 USB에 백업하고 포맷 후 그대로 복원하세요.</p>
+        <li data-category="system" class="app-card app-slate">
+          <div class="card-top"><span class="app-category">백업 · 복원</span><span class="card-index">04</span></div>
+          <div class="product-heading">
+            <div class="icon-stage"><img class="row-icon" width="68" height="68" src="assets/formatrestore-icon.png" alt="포맷 복원 도우미 아이콘"></div>
+            <div class="product-name"><h3>포맷 복원 도우미</h3><p>포맷 전후를 연결.</p></div>
           </div>
-          <div class="row-action">
-            <span class="row-meta">109 MB</span>
-            <span class="row-download">EXE 다운로드
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
-            </span>
+          <p class="product-description">포맷 전 파일과 설치 앱 목록을 USB에 백업하고 포맷 후 그대로 복원하세요.</p>
+          <ul class="feature-list" aria-label="주요 기능"><li>USB 백업</li><li>파일 복원</li></ul>
+          <div class="card-action">
+            <span class="file-info"><span>Windows · ZIP</span><strong>110 MB</strong></span>
+            <a class="download-link" href="https://github.com/HYUN-EXE/FormatRestoreHelper-Releases/releases/latest/download/FormatRestoreHelper_Setup.zip" data-hash aria-label="포맷 복원 도우미 ZIP 다운로드">ZIP 받기 <span aria-hidden="true">↓</span></a>
           </div>
-          <a class="row-link" href="https://github.com/HYUN-EXE/FormatRestoreHelper-Releases/releases/latest/download/FormatRestoreHelper_Setup.exe" aria-label="포맷 복원 도우미 EXE 다운로드"></a>
         </li>
 
-        <li class="app-row" style="--i:4">
-          <span class="row-number">05</span>
-          <img class="row-icon" width="68" height="68" src="assets/tetherbrowser-icon.png" alt="TetherBrowser 아이콘">
-          <div class="row-copy">
-            <h3>TetherBrowser</h3>
-            <p>휴대폰 테더링 회선만 사용하도록 격리된 전용 브라우저입니다.</p>
+        <li data-category="system" class="app-card app-sky">
+          <div class="card-top"><span class="app-category">테더링 브라우저</span><span class="card-index">05</span></div>
+          <div class="product-heading">
+            <div class="icon-stage"><img class="row-icon" width="68" height="68" src="assets/tetherbrowser-icon.png" alt="TetherBrowser 아이콘"></div>
+            <div class="product-name"><h3>TetherBrowser</h3><p>테더링만, 독립적으로.</p></div>
           </div>
-          <div class="row-action">
-            <span class="row-meta">75 MB</span>
-            <span class="row-download">EXE 다운로드
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
-            </span>
+          <p class="product-description">휴대폰 테더링 회선만 사용하도록 격리된 전용 브라우저입니다.</p>
+          <ul class="feature-list" aria-label="주요 기능"><li>전용 회선</li><li>격리 브라우징</li></ul>
+          <div class="card-action">
+            <span class="file-info"><span>Windows · EXE</span><strong>75 MB</strong></span>
+            <a class="download-link" href="https://github.com/HYUN-EXE/TetherBrowser-Releases/releases/latest/download/TetherBrowser_Setup.exe" aria-label="TetherBrowser EXE 다운로드">EXE 받기 <span aria-hidden="true">↓</span></a>
           </div>
-          <a class="row-link" href="https://github.com/HYUN-EXE/TetherBrowser-Releases/releases/latest/download/TetherBrowser_Setup.exe" aria-label="TetherBrowser EXE 다운로드"></a>
         </li>
 
-        <li class="app-row" style="--i:5">
-          <span class="row-number">06</span>
-          <img class="row-icon" width="68" height="68" src="assets/formatchanger-icon.png" alt="확장자변환기 아이콘">
-          <div class="row-copy">
-            <h3>확장자변환기</h3>
-            <p>음악·사진·동영상을 한 번에 넣고 원하는 형식으로 간편하게 바꾸세요.</p>
+        <li data-category="media" class="app-card app-indigo">
+          <div class="card-top"><span class="app-category">미디어 변환</span><span class="card-index">06</span></div>
+          <div class="product-heading">
+            <div class="icon-stage"><img class="row-icon" width="68" height="68" src="assets/formatchanger-icon.png" alt="확장자변환기 아이콘"></div>
+            <div class="product-name"><h3>확장자변환기</h3><p>파일 형식을 자유롭게.</p></div>
           </div>
-          <div class="row-action">
-            <span class="row-meta">166 MB</span>
-            <span class="row-download">EXE 다운로드
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 11 5 5 5-5"></path><path d="M4 21h16"></path></svg>
-            </span>
+          <p class="product-description">음악·사진·동영상을 한 번에 넣고 원하는 형식으로 간편하게 바꾸세요.</p>
+          <ul class="feature-list" aria-label="주요 기능"><li>음악</li><li>사진</li><li>동영상</li></ul>
+          <div class="card-action">
+            <span class="file-info"><span>Windows · EXE</span><strong>166 MB</strong></span>
+            <a class="download-link" href="https://github.com/HYUN-EXE/FormatChanger-Releases/releases/latest/download/FormatChanger_Setup.exe" data-hash aria-label="확장자변환기 EXE 다운로드">EXE 받기 <span aria-hidden="true">↓</span></a>
           </div>
-          <a class="row-link" href="https://github.com/HYUN-EXE/FormatChanger-Releases/releases/latest/download/FormatChanger_Setup.exe" data-hash aria-label="확장자변환기 EXE 다운로드"></a>
         </li>
       </ul>
     </section>
+
+    <section class="guide wrap" id="guide" aria-labelledby="guide-title">
+      <div class="guide-heading">
+        <p class="section-kicker">QUICK START</p>
+        <h2 id="guide-title">고르고, 확인하고, 시작하세요.</h2>
+        <p>세 단계면 필요한 프로그램을 받을 수 있습니다.</p>
+      </div>
+      <ol class="guide-steps">
+        <li><span>01</span><div><strong>작업 선택</strong><p>카테고리에서 필요한 작업과 도구를 찾습니다.</p></div></li>
+        <li><span>02</span><div><strong>파일 확인</strong><p>프로그램 이름, 형식, 용량을 한 번 더 확인합니다.</p></div></li>
+        <li><span>03</span><div><strong>다운로드</strong><p>GitHub 릴리스의 Windows 설치 파일을 내려받습니다.</p></div></li>
+      </ol>
+      <p class="guide-note"><span aria-hidden="true">✓</span> SHA-256 파일이 제공되는 프로그램은 다운로드 확인 창에서 무결성 파일도 받을 수 있습니다.</p>
+    </section>
   </main>
 
-  <footer>
-    <span class="wordmark">UTILITIES</span>
-    <p>HYUN-EXE</p>
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="wordmark" href="./"><span class="brand-mark" aria-hidden="true">h.</span><span class="brand-name">HYUN <span>/ utilities</span></span></a>
+      <p>일상을 조금 더 편하게 만드는 작은 도구들.</p>
+      <a href="https://github.com/HYUN-EXE/downloads" target="_blank" rel="noreferrer">GitHub에서 보기 <span aria-hidden="true">↗</span></a>
+    </div>
   </footer>
 
   <dialog class="confirm" aria-labelledby="confirm-title">
-    <p class="confirm-kicker">DOWNLOAD</p>
-    <h2 id="confirm-title">다운로드할까요?</h2>
-    <p class="confirm-app"></p>
-    <p class="confirm-note">Windows용 설치 파일(EXE)<span class="confirm-size"></span></p>
-    <a class="confirm-hash" href="#" hidden>SHA-256 파일 받기</a>
+    <div class="confirm-icon" aria-hidden="true">↓</div>
+    <p class="confirm-kicker">DOWNLOAD CHECK</p>
+    <h2 id="confirm-title">이 파일을 다운로드할까요?</h2>
+    <div class="confirm-file">
+      <strong class="confirm-app"></strong>
+      <span>Windows 설치 파일 <span class="confirm-size"></span></span>
+    </div>
+    <a class="confirm-hash" href="#" hidden>SHA-256 무결성 파일 받기 <span aria-hidden="true">↗</span></a>
     <div class="confirm-actions">
-      <button class="confirm-cancel" type="button">취소</button>
+      <button class="confirm-cancel" type="button" autofocus>취소</button>
       <a class="confirm-go" href="#">다운로드</a>
     </div>
   </dialog>
 
   <script>
-    const motionAllowed = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const cards = [...document.querySelectorAll('.app-card')];
+    const count = document.querySelector('.section-heading .count');
+    if (count) count.textContent = String(cards.length).padStart(2, '0');
 
-    // 페이지 전체를 따라다니는 커서 빛. 살짝 늦게 따라와야 부드럽게 보인다.
-    const cursorGlow = document.querySelector('.cursor-glow');
-    if (cursorGlow && matchMedia('(pointer: fine)').matches) {
-      const ease = motionAllowed ? .12 : 1;
-      let pointerX = innerWidth / 2, pointerY = innerHeight / 2;
-      let glowX = pointerX, glowY = pointerY, following = false;
+    const filterBar = document.querySelector('.filters');
+    const resultsCount = document.querySelector('.results-count');
+    if (filterBar) {
+      filterBar.hidden = false;
+      filterBar.addEventListener('click', event => {
+        const button = event.target.closest('button[data-filter]');
+        if (!button) return;
 
-      const follow = () => {
-        glowX += (pointerX - glowX) * ease;
-        glowY += (pointerY - glowY) * ease;
-        cursorGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0)`;
-        requestAnimationFrame(follow);
-      };
-
-      addEventListener('pointermove', event => {
-        pointerX = event.clientX;
-        pointerY = event.clientY;
-        if (!following) {
-          following = true;
-          glowX = pointerX;
-          glowY = pointerY;
-          document.body.dataset.cursor = '';
-          follow();
+        for (const control of filterBar.querySelectorAll('button')) {
+          control.setAttribute('aria-pressed', String(control === button));
         }
-      }, { passive: true });
 
-      // pointerleave/enter는 버블링하지 않아 window에서 잡히지 않는다.
-      // 버블링하는 pointerout/over에서 relatedTarget이 비었는지로 창 밖 이탈을 가른다.
-      addEventListener('pointerout', event => { if (!event.relatedTarget) delete document.body.dataset.cursor; });
-      addEventListener('pointerover', () => { if (following) document.body.dataset.cursor = ''; });
+        let visible = 0;
+        for (const card of cards) {
+          card.hidden = button.dataset.filter !== 'all' && card.dataset.category !== button.dataset.filter;
+          if (!card.hidden) visible++;
+        }
+        if (resultsCount) resultsCount.textContent = `${visible}개의 프로그램`;
+      });
     }
 
-    // 목록 개수는 세어서 넣는다. 프로그램을 추가해도 라벨을 고칠 필요가 없다.
-    const rowCount = document.querySelectorAll('.app-row').length;
-    const count = document.querySelector('.section-heading .count');
-    if (count) count.textContent = String(rowCount).padStart(2, '0') + ' ITEMS';
-
-    // 행을 누르면 바로 받지 않고 한 번 확인받는다.
-    // dialog를 지원하지 않는 브라우저에서는 링크가 원래대로 동작한다.
     const confirmBox = document.querySelector('.confirm');
     if (confirmBox && typeof confirmBox.showModal === 'function') {
       const confirmApp = confirmBox.querySelector('.confirm-app');
       const confirmSize = confirmBox.querySelector('.confirm-size');
       const confirmGo = confirmBox.querySelector('.confirm-go');
       const confirmHash = confirmBox.querySelector('.confirm-hash');
-
-      // 새 탭/새 창으로 열려는 클릭은 가로채지 않는다.
       const plainClick = event => event.button === 0 && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey;
 
-      for (const link of document.querySelectorAll('.row-link')) {
+      for (const link of document.querySelectorAll('.download-link')) {
         link.addEventListener('click', event => {
           if (!plainClick(event)) return;
           event.preventDefault();
-          const row = link.closest('.app-row');
-          const size = row.querySelector('.row-meta');
-          confirmApp.textContent = row.querySelector('h3').textContent;
-          confirmSize.textContent = size ? ' · ' + size.textContent : '';
+          const card = link.closest('.app-card');
+          confirmApp.textContent = card.querySelector('h3').textContent;
+          confirmSize.textContent = `· ${card.querySelector('.file-info strong').textContent}`;
           confirmGo.href = link.href;
-          // 해시 자산이 올라간 프로그램에만 data-hash를 붙인다. Release에 없으면 링크가 404가 된다.
           confirmHash.hidden = !('hash' in link.dataset);
-          confirmHash.href = link.href + '.sha256';
+          confirmHash.href = `${link.href}.sha256`;
           confirmBox.showModal();
         });
       }
 
-      // 링크 기본 동작에 맡기면 close()로 창이 사라지는 순간 다운로드가 취소될 수 있다.
-      // 주소를 직접 넘겨 내려받기를 시작한 뒤 창을 닫는다.
       confirmGo.addEventListener('click', event => {
         if (!plainClick(event)) return;
         event.preventDefault();
@@ -231,15 +278,11 @@
       });
 
       confirmBox.querySelector('.confirm-cancel').addEventListener('click', () => confirmBox.close());
-
-      // 바깥(배경)을 눌렀을 때만 닫는다. 창 안쪽 여백은 배경과 같은 대상으로 잡히므로 좌표로 가른다.
       confirmBox.addEventListener('click', event => {
         if (event.target !== confirmBox) return;
         const box = confirmBox.getBoundingClientRect();
-        const insideBox =
-          event.clientX >= box.left && event.clientX <= box.right &&
-          event.clientY >= box.top && event.clientY <= box.bottom;
-        if (!insideBox) confirmBox.close();
+        const inside = event.clientX >= box.left && event.clientX <= box.right && event.clientY >= box.top && event.clientY <= box.bottom;
+        if (!inside) confirmBox.close();
       });
     }
   </script>
