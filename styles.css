@@ -185,9 +185,11 @@ h1 em { color: var(--lime); font-style: normal; }
 .file-info { display: flex; flex-direction: column; gap: 5px; }
 .file-info span { color: #7b8799; font-size: 9px; }
 .file-info strong { color: #425169; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 11px; font-weight: 600; }
-.download-link { position: relative; display: inline-flex; align-items: center; gap: 10px; min-height: 42px; padding: 0 14px; border-radius: 9px; background: var(--blue); color: white; font-size: 11px; font-weight: 800; white-space: nowrap; transition: background .2s, transform .2s; }
-.download-link:hover { background: var(--blue-dark); transform: translateY(-1px); }
-.download-link span { font-size: 15px; }
+.download-link { position: static; display: inline-flex; align-items: center; padding: 3px 0; color: var(--blue); font-size: 11px; font-weight: 800; white-space: nowrap; transition: color .2s; }
+.download-link::after { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: 20px; cursor: pointer; }
+.download-link:hover { color: var(--blue-dark); }
+.download-link:focus-visible { outline: none; }
+.download-link:focus-visible::after { box-shadow: inset 0 0 0 3px #6b8cf0; }
 .app-card:focus-within { border-color: #8ba4e6; }
 
 .guide { margin-top: 86px; margin-bottom: 78px; padding: 42px; border-radius: 24px; background: var(--navy); color: white; box-shadow: 0 24px 60px rgba(13, 23, 40, .12); }
@@ -310,7 +312,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid #6b8cf0; outline-offs
   .app-card { min-height: 0; padding: 22px; }
   .product-name h3 { font-size: 21px; }
   .product-description { min-height: 48px; font-size: 13px; }
-  .download-link { min-height: 44px; padding-inline: 16px; }
   .guide { padding: 26px 22px; border-radius: 20px; }
   .guide-heading h2 { font-size: 26px; }
   .footer-inner { flex-wrap: wrap; gap: 14px; padding: 24px 0; }
@@ -322,5 +323,5 @@ a:focus-visible, button:focus-visible { outline: 3px solid #6b8cf0; outline-offs
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
-  .primary-cta:hover, .download-link:hover, .app-card:hover { transform: none; }
+  .primary-cta:hover, .app-card:hover { transform: none; }
 }
