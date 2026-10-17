@@ -4,22 +4,44 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="GifMaker, VideoCutter, SmcR, 포맷 복원 도우미, TetherBrowser, 확장자변환기를 한곳에서 확인하고 다운로드하세요.">
-  <meta name="theme-color" content="#0d1728">
-  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f4f6f8">
+  <meta name="color-scheme" content="light dark">
   <title>HYUN Utilities — 필요한 순간, 딱 맞는 도구</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon.png" sizes="64x64">
-  <link rel="stylesheet" href="styles.css?v=20261016-5">
+  <script>
+    (() => {
+      let savedTheme = null;
+      try { savedTheme = localStorage.getItem('hyun-theme'); } catch {}
+      const theme = savedTheme === 'light' || savedTheme === 'dark'
+        ? savedTheme
+        : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = theme;
+      document.querySelector('meta[name="theme-color"]').content = theme === 'dark' ? '#09111e' : '#f4f6f8';
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20261017-1">
 </head>
 <body>
   <a class="skip-link" href="#catalog">프로그램 목록으로 건너뛰기</a>
 
   <header class="site-header">
     <div class="header-inner wrap">
-      <a class="wordmark" href="./" aria-label="HYUN Utilities 홈">
-        <span class="brand-mark" aria-hidden="true">h.</span>
-        <span class="brand-name">HYUN <span>/ utilities</span></span>
-      </a>
+      <div class="brand-controls">
+        <a class="wordmark" href="./" aria-label="HYUN Utilities 홈">
+          <span class="brand-mark" aria-hidden="true">h.</span>
+          <span class="brand-name">HYUN <span>/ utilities</span></span>
+        </a>
+        <button class="theme-toggle" type="button" aria-label="다크 모드로 전환" aria-pressed="false" title="다크 모드로 전환">
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.25"></circle>
+            <path d="M12 2.2v2.1M12 19.7v2.1M2.2 12h2.1M19.7 12h2.1M5.08 5.08l1.49 1.49M17.43 17.43l1.49 1.49M18.92 5.08l-1.49 1.49M6.57 17.43l-1.49 1.49"></path>
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.2 15.1A8.6 8.6 0 0 1 8.9 3.8 8.65 8.65 0 1 0 20.2 15.1Z"></path>
+          </svg>
+        </button>
+      </div>
       <nav aria-label="주 메뉴">
         <a href="#catalog">도구 모음</a>
         <a href="#guide">이용 안내</a>
@@ -222,6 +244,60 @@
   </dialog>
 
   <script>
+    const root = document.documentElement;
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    let themeTransitioning = false;
+
+    const applyTheme = (theme, persist = false) => {
+      root.dataset.theme = theme;
+      themeColor.content = theme === 'dark' ? '#09111e' : '#f4f6f8';
+      if (themeToggle) {
+        const dark = theme === 'dark';
+        const label = dark ? '라이트 모드로 전환' : '다크 모드로 전환';
+        themeToggle.setAttribute('aria-pressed', String(dark));
+        themeToggle.setAttribute('aria-label', label);
+        themeToggle.title = label;
+      }
+      if (persist) {
+        try { localStorage.setItem('hyun-theme', theme); } catch {}
+      }
+    };
+
+    applyTheme(root.dataset.theme || 'light');
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        if (themeTransitioning) return;
+        const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        const rect = themeToggle.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+
+        if (!document.startViewTransition || reduceMotion.matches) {
+          applyTheme(nextTheme, true);
+          return;
+        }
+
+        root.style.setProperty('--theme-x', `${x}px`);
+        root.style.setProperty('--theme-y', `${y}px`);
+        root.style.setProperty('--theme-radius', `${radius}px`);
+        root.classList.add('theme-changing');
+        themeTransitioning = true;
+
+        const transition = document.startViewTransition(() => applyTheme(nextTheme, true));
+        transition.finished.catch(() => {}).finally(() => {
+          root.classList.remove('theme-changing');
+          root.style.removeProperty('--theme-x');
+          root.style.removeProperty('--theme-y');
+          root.style.removeProperty('--theme-radius');
+          themeTransitioning = false;
+        });
+      });
+    }
+
     const cards = [...document.querySelectorAll('.app-card')];
     const count = document.querySelector('.section-heading .count');
     if (count) count.textContent = String(cards.length).padStart(2, '0');
